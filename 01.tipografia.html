@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Estilos de texto</title>
 </head>
+
 <body class="bg-gray-50 text-gray-800 antialiased leading-relaxed p-8">
     <h1 class="text-3xl font-bold mb-8 text-center">Guía Visual de Tipografía en Tailwind CSS 4.1</h1>
 
@@ -15,7 +16,7 @@
 
         <!-- Font Family -->
         <section>
-            <h2 class="text-2xl font-semibold mb-4 border-b pb-2">font-family</h2>
+            <h2 class="text-2xl font-semibold mb-4 border-b pb-2">1. Tipografía: font-family</h2>
             <div class="space-y-4">
                 <div>
                     <p class="font-sans">font-sans: The quick brown fox jumps over the lazy dog.</p>
@@ -34,13 +35,13 @@
 
         <!-- Font Size -->
         <section>
-            <h2 class="text-2xl font-semibold mb-4 border-b pb-2">font-size</h2>
+            <h2 class="text-2xl font-semibold mb-4 border-b pb-2">2. font-size</h2>
             <div class="space-y-2">
                 <p class="text-xs">text-xs: The quick brown fox...</p>
                 <p class="text-sm">text-sm: The quick brown fox...</p>
                 <p class="text-base">text-base: The quick brown fox...</p>
                 <p class="text-lg">text-lg: The quick brown fox...</p>
-                <p class="text-xl">text-xl: The quick brown fox...</p>
+                <p class="text-xl1">text-xl: The quick brown fox...</p>
                 <p class="text-2xl">text-2xl: The quick brown fox...</p>
                 <p class="text-3xl">text-3xl: The quick brown fox...</p>
                 <p class="text-4xl">text-4xl: The quick brown fox...</p>
@@ -57,7 +58,8 @@
                     <code class="text-sm text-pink-600">.antialiased</code> (Often default)
                 </div>
                 <div>
-                    <p class="subpixel-antialiased text-lg">subpixel-antialiased: Renders text with subpixel antialiasing.</p>
+                    <p class="subpixel-antialiased text-lg">subpixel-antialiased: Renders text with subpixel
+                        antialiasing.</p>
                     <code class="text-sm text-pink-600">.subpixel-antialiased</code>
                 </div>
             </div>
@@ -97,17 +99,19 @@
         <!-- Font Stretch (Requires variable fonts) -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">font-stretch</h2>
-            <p class="text-gray-600 mb-2">Controla el ancho de los glifos de una fuente. Funciona mejor con fuentes variables que soportan ejes de ancho o condensación.</p>
+            <p class="text-gray-600 mb-2">Controla el ancho de los glifos de una fuente. Funciona mejor con fuentes
+                variables que soportan ejes de ancho o condensación.</p>
             <div class="space-y-2">
-                 <p class="font-stretch-condensed">font-stretch-condensed: The quick brown fox...</p>
-                 <p class="font-stretch-normal">font-stretch-normal: The quick brown fox...</p>
-                 <p class="font-stretch-expanded">font-stretch-expanded: The quick brown fox...</p>
-                 <!-- Puede que no veas diferencia sin una fuente variable adecuada -->
+                <p class="font-stretch-condensed">font-stretch-condensed: The quick brown fox...</p>
+                <p class="font-stretch-normal">font-stretch-normal: The quick brown fox...</p>
+                <p class="font-stretch-expanded">font-stretch-expanded: The quick brown fox...</p>
+                <!-- Puede que no veas diferencia sin una fuente variable adecuada -->
             </div>
-             <p class="mt-2 text-sm text-gray-500">Nota: El efecto visual de `font-stretch` depende de si la fuente cargada soporta el eje de variación 'wdth'.</p>
+            <p class="mt-2 text-sm text-gray-500">Nota: El efecto visual de `font-stretch` depende de si la fuente
+                cargada soporta el eje de variación 'wdth'.</p>
         </section>
 
-         <!-- Font Variant Numeric -->
+        <!-- Font Variant Numeric -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">font-variant-numeric</h2>
             <p class="text-gray-600 mb-2">Controla las formas alternativas de los números, fracciones y ceros.</p>
@@ -122,7 +126,8 @@
                 <p class="diagonal-fractions">diagonal-fractions: 1/2 3/4 (Requiere soporte de fuente)</p>
                 <p class="stacked-fractions">stacked-fractions: 1/2 3/4 (Requiere soporte de fuente)</p>
             </div>
-             <p class="mt-2 text-sm text-gray-500">Nota: El efecto visual depende del soporte de características OpenType en la fuente.</p>
+            <p class="mt-2 text-sm text-gray-500">Nota: El efecto visual depende del soporte de características OpenType
+                en la fuente.</p>
         </section>
 
         <!-- Letter Spacing -->
@@ -141,17 +146,26 @@
         <!-- Line Clamp -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">line-clamp</h2>
-             <p class="text-gray-600 mb-2">Limita el texto a un número específico de líneas, mostrando puntos suspensivos (...) al final.</p>
+            <p class="text-gray-600 mb-2">Limita el texto a un número específico de líneas, mostrando puntos suspensivos
+                (...) al final.</p>
             <div class="space-y-4">
                 <div>
                     <p class="line-clamp-3 w-96 bg-gray-200 p-2 rounded">
-                        line-clamp-3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        line-clamp-3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
                     <code class="text-sm text-pink-600">.line-clamp-3</code>
                 </div>
-                 <div>
+                <div>
                     <p class="line-clamp-none w-96 bg-gray-200 p-2 rounded">
-                       line-clamp-none: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        line-clamp-none: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
                     <code class="text-sm text-pink-600">.line-clamp-none</code>
                 </div>
@@ -162,14 +176,22 @@
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">line-height</h2>
             <div class="w-96 bg-gray-200 p-2 rounded space-y-4">
-                 <p class="leading-3">leading-3: (0.75rem) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                 <p class="leading-4">leading-4: (1rem) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                 <p class="leading-none">leading-none: (1) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                 <p class="leading-tight">leading-tight: (1.25) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                 <p class="leading-snug">leading-snug: (1.375) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                 <p class="leading-normal">leading-normal: (1.5) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                 <p class="leading-relaxed">leading-relaxed: (1.625) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                 <p class="leading-loose">leading-loose: (2) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="leading-3">leading-3: (0.75rem) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="leading-4">leading-4: (1rem) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="leading-none">leading-none: (1) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="leading-tight">leading-tight: (1.25) Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="leading-snug">leading-snug: (1.375) Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="leading-normal">leading-normal: (1.5) Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="leading-relaxed">leading-relaxed: (1.625) Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="leading-loose">leading-loose: (2) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </section>
 
@@ -179,23 +201,38 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                     <h3 class="font-medium mb-2">list-style-type</h3>
-                    <ul class="list-disc ml-5 space-y-1"><li>Disc 1</li><li>Disc 2</li></ul> <code class="text-sm text-pink-600">.list-disc</code>
-                    <ul class="list-decimal ml-5 mt-2 space-y-1"><li>Decimal 1</li><li>Decimal 2</li></ul> <code class="text-sm text-pink-600">.list-decimal</code>
-                     <ul class="list-none ml-5 mt-2 space-y-1"><li>None 1</li><li>None 2</li></ul> <code class="text-sm text-pink-600">.list-none</code>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li>Disc 1</li>
+                        <li>Disc 2</li>
+                    </ul> <code class="text-sm text-pink-600">.list-disc</code>
+                    <ul class="list-decimal ml-5 mt-2 space-y-1">
+                        <li>Decimal 1</li>
+                        <li>Decimal 2</li>
+                    </ul> <code class="text-sm text-pink-600">.list-decimal</code>
+                    <ul class="list-none ml-5 mt-2 space-y-1">
+                        <li>None 1</li>
+                        <li>None 2</li>
+                    </ul> <code class="text-sm text-pink-600">.list-none</code>
                 </div>
-                 <div>
+                <div>
                     <h3 class="font-medium mb-2">list-style-position</h3>
-                    <ul class="list-disc list-inside bg-blue-100 p-2 rounded"><li>Inside 1: The marker is inside the text block.</li><li>Inside 2</li></ul> <code class="text-sm text-pink-600">.list-inside</code>
-                    <ul class="list-disc list-outside bg-green-100 p-2 mt-2 rounded ml-5"><li>Outside 1: The marker is outside the text block.</li><li>Outside 2</li></ul> <code class="text-sm text-pink-600">.list-outside</code> (Often Default)
+                    <ul class="list-disc list-inside bg-blue-100 p-2 rounded">
+                        <li>Inside 1: The marker is inside the text block.</li>
+                        <li>Inside 2</li>
+                    </ul> <code class="text-sm text-pink-600">.list-inside</code>
+                    <ul class="list-disc list-outside bg-green-100 p-2 mt-2 rounded ml-5">
+                        <li>Outside 1: The marker is outside the text block.</li>
+                        <li>Outside 2</li>
+                    </ul> <code class="text-sm text-pink-600">.list-outside</code> (Often Default)
                 </div>
-                 <div>
+                <div>
                     <h3 class="font-medium mb-2">list-style-image</h3>
                     <p class="text-gray-600 mb-2">Usa una imagen como marcador de lista.</p>
-                    <ul class="list-image-[url(https://via.placeholder.com/10)] ml-5 space-y-1">
+                    <ul class="list-image-[url(https://placehold.co/10)] ml-8 space-y-1">
                         <li>Item con imagen 1</li>
                         <li>Item con imagen 2</li>
                     </ul>
-                     <code class="text-sm text-pink-600">.list-image-[url(...)]</code>
+                    <code class="text-sm text-pink-600">.list-image-[url(...)]</code>
                 </div>
             </div>
         </section>
@@ -207,14 +244,15 @@
                 <p class="text-left bg-gray-200 p-1 rounded">text-left: Alineado a la izquierda.</p>
                 <p class="text-center bg-gray-200 p-1 rounded">text-center: Alineado al centro.</p>
                 <p class="text-right bg-gray-200 p-1 rounded">text-right: Alineado a la derecha.</p>
-                <p class="text-justify bg-gray-200 p-1 rounded">text-justify: Justificado. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="text-justify bg-gray-200 p-1 rounded">text-justify: Justificado. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </section>
 
         <!-- Text Color -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">color</h2>
-             <div class="space-y-2">
+            <div class="space-y-2">
                 <p class="text-black">text-black</p>
                 <p class="text-red-500">text-red-500</p>
                 <p class="text-blue-700">text-blue-700</p>
@@ -228,36 +266,47 @@
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">text-decoration-*</h2>
             <div class="space-y-4">
-                 <p class="underline decoration-solid decoration-red-500 decoration-4 underline-offset-2">
+                <p class="underline decoration-solid decoration-red-500 decoration-4 underline-offset-2">
                     underline decoration-red-500 decoration-4 underline-offset-2
-                 </p>
-                 <p class="line-through decoration-dashed decoration-blue-500 decoration-2">
+                </p>
+                <p class="line-through decoration-dashed decoration-blue-500 decoration-2">
                     line-through decoration-dashed decoration-blue-500 decoration-2
-                 </p>
-                 <p class="overline decoration-dotted decoration-green-600 decoration-auto">
+                </p>
+                <p class="overline decoration-dotted decoration-green-600 decoration-auto">
                     overline decoration-dotted decoration-green-600 decoration-auto
-                 </p>
-                 <p class="no-underline">
+                </p>
+                <p class="no-underline">
                     no-underline
-                 </p>
-                 <p class="underline decoration-wavy decoration-pink-500">
+                </p>
+                <p class="underline decoration-wavy decoration-pink-500">
                     underline decoration-wavy decoration-pink-500
-                 </p>
-                 <p class="underline decoration-double">
+                </p>
+                <p class="underline decoration-double">
                     underline decoration-double
-                 </p>
-                 <p class="underline underline-offset-8 decoration-sky-500">
+                </p>
+                <p class="underline underline-offset-8 decoration-sky-500">
                     underline underline-offset-8 decoration-sky-500
-                 </p>
+                </p>
             </div>
             <div class="mt-4 text-sm space-y-1">
                 <p>Clases usadas en los ejemplos:</p>
                 <ul class="list-disc ml-5">
-                    <li><code>text-decoration-line</code>: <code class="text-pink-600">underline</code>, <code class="text-pink-600">line-through</code>, <code class="text-pink-600">overline</code>, <code class="text-pink-600">no-underline</code></li>
-                    <li><code>text-decoration-style</code>: <code class="text-pink-600">decoration-solid</code>, <code class="text-pink-600">decoration-dashed</code>, <code class="text-pink-600">decoration-dotted</code>, <code class="text-pink-600">decoration-double</code>, <code class="text-pink-600">decoration-wavy</code></li>
-                    <li><code>text-decoration-color</code>: <code class="text-pink-600">decoration-red-500</code>, <code class="text-pink-600">decoration-blue-500</code>, etc.</li>
-                    <li><code>text-decoration-thickness</code>: <code class="text-pink-600">decoration-auto</code>, <code class="text-pink-600">decoration-1</code>, <code class="text-pink-600">decoration-2</code>, <code class="text-pink-600">decoration-4</code>, etc.</li>
-                    <li><code>text-underline-offset</code>: <code class="text-pink-600">underline-offset-2</code>, <code class="text-pink-600">underline-offset-8</code>, etc.</li>
+                    <li><code>text-decoration-line</code>: <code class="text-pink-600">underline</code>, <code
+                            class="text-pink-600">line-through</code>, <code class="text-pink-600">overline</code>,
+                        <code class="text-pink-600">no-underline</code></li>
+                    <li><code>text-decoration-style</code>: <code class="text-pink-600">decoration-solid</code>, <code
+                            class="text-pink-600">decoration-dashed</code>, <code
+                            class="text-pink-600">decoration-dotted</code>, <code
+                            class="text-pink-600">decoration-double</code>, <code
+                            class="text-pink-600">decoration-wavy</code></li>
+                    <li><code>text-decoration-color</code>: <code class="text-pink-600">decoration-red-500</code>, <code
+                            class="text-pink-600">decoration-blue-500</code>, etc.</li>
+                    <li><code>text-decoration-thickness</code>: <code class="text-pink-600">decoration-auto</code>,
+                        <code class="text-pink-600">decoration-1</code>, <code
+                            class="text-pink-600">decoration-2</code>, <code class="text-pink-600">decoration-4</code>,
+                        etc.</li>
+                    <li><code>text-underline-offset</code>: <code class="text-pink-600">underline-offset-2</code>, <code
+                            class="text-pink-600">underline-offset-8</code>, etc.</li>
                 </ul>
             </div>
         </section>
@@ -276,19 +325,23 @@
         <!-- Text Overflow -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">text-overflow</h2>
-             <p class="text-gray-600 mb-2">Controla cómo se muestra el texto que desborda su contenedor.</p>
+            <p class="text-gray-600 mb-2">Controla cómo se muestra el texto que desborda su contenedor.</p>
             <div class="space-y-4">
                 <div class="w-64 overflow-hidden whitespace-nowrap bg-gray-200 p-2 rounded">
-                     <p class="truncate">truncate: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                     <code class="text-sm text-pink-600">.truncate</code> (combina overflow-hidden, whitespace-nowrap, text-overflow-ellipsis)
-                </div>
-                 <div class="w-64 overflow-hidden whitespace-nowrap bg-gray-200 p-2 rounded">
-                     <p class="text-ellipsis overflow-hidden whitespace-nowrap">text-ellipsis: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                     <code class="text-sm text-pink-600">.text-ellipsis</code> (necesita overflow-hidden y whitespace-nowrap)
+                    <p class="truncate">truncate: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <code class="text-sm text-pink-600">.truncate</code> (combina overflow-hidden, whitespace-nowrap,
+                    text-overflow-ellipsis)
                 </div>
                 <div class="w-64 overflow-hidden whitespace-nowrap bg-gray-200 p-2 rounded">
-                     <p class="text-clip overflow-hidden whitespace-nowrap">text-clip: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                      <code class="text-sm text-pink-600">.text-clip</code> (necesita overflow-hidden y whitespace-nowrap)
+                    <p class="text-ellipsis overflow-hidden whitespace-nowrap">text-ellipsis: Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit.</p>
+                    <code class="text-sm text-pink-600">.text-ellipsis</code> (necesita overflow-hidden y
+                    whitespace-nowrap)
+                </div>
+                <div class="w-64 overflow-hidden whitespace-nowrap bg-gray-200 p-2 rounded">
+                    <p class="text-clip overflow-hidden whitespace-nowrap">text-clip: Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit.</p>
+                    <code class="text-sm text-pink-600">.text-clip</code> (necesita overflow-hidden y whitespace-nowrap)
                 </div>
             </div>
         </section>
@@ -298,18 +351,19 @@
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">text-wrap</h2>
             <p class="text-gray-600 mb-2">Controla cómo se envuelve el texto dentro de un elemento.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                 <div class="w-48 bg-gray-200 p-2 rounded">
+                <div class="w-48 bg-gray-200 p-2 rounded">
                     <p class="text-wrap">text-wrap (Default): Loremipsumdolorsitametconsecteturadipiscingelit.</p>
                     <code class="text-sm text-pink-600">.text-wrap</code>
-                 </div>
-                 <div class="w-48 bg-gray-200 p-2 rounded">
+                </div>
+                <div class="w-48 bg-gray-200 p-2 rounded">
                     <p class="text-nowrap">text-nowrap: Loremipsumdolorsitametconsecteturadipiscingelit.</p>
-                     <code class="text-sm text-pink-600">.text-nowrap</code>
-                 </div>
-                 <div class="w-48 bg-gray-200 p-2 rounded">
-                    <p class="text-balance">text-balance: Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+                    <code class="text-sm text-pink-600">.text-nowrap</code>
+                </div>
+                <div class="w-48 bg-gray-200 p-2 rounded">
+                    <p class="text-balance">text-balance: Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                        eiusmod.</p>
                     <code class="text-sm text-pink-600">.text-balance</code> (Intenta equilibrar las líneas)
-                 </div>
+                </div>
             </div>
         </section>
 
@@ -327,7 +381,7 @@
         <!-- Vertical Align -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">vertical-align</h2>
-             <p class="text-gray-600 mb-2">Controla la alineación vertical de elementos inline o celdas de tabla.</p>
+            <p class="text-gray-600 mb-2">Controla la alineación vertical de elementos inline o celdas de tabla.</p>
             <div class="border p-4">
                 Texto baseline <span class="align-baseline inline-block bg-red-200">baseline</span>
                 <span class="align-top inline-block bg-green-200">top</span>
@@ -343,70 +397,80 @@
         <!-- White Space -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">white-space</h2>
-             <p class="text-gray-600 mb-2">Controla cómo se manejan los espacios en blanco y los saltos de línea.</p>
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <p class="text-gray-600 mb-2">Controla cómo se manejan los espacios en blanco y los saltos de línea.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="w-64 bg-gray-200 p-2 rounded">
-                    <p class="whitespace-normal">whitespace-normal (Default): Lorem ipsum dolor sit   amet, consectetur adipiscing elit. Multiple spaces collapse.</p>
+                    <p class="whitespace-normal">whitespace-normal (Default): Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Multiple spaces collapse.</p>
                     <code class="text-sm text-pink-600">.whitespace-normal</code>
                 </div>
-                 <div class="w-64 bg-gray-200 p-2 rounded overflow-auto">
-                    <p class="whitespace-nowrap">whitespace-nowrap: Lorem ipsum dolor sit amet, consectetur adipiscing elit. No wrapping.</p>
+                <div class="w-64 bg-gray-200 p-2 rounded overflow-auto">
+                    <p class="whitespace-nowrap">whitespace-nowrap: Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. No wrapping.</p>
                     <code class="text-sm text-pink-600">.whitespace-nowrap</code>
                 </div>
-                 <div class="w-64 h-24 bg-gray-200 p-2 rounded overflow-auto">
-                    <p class="whitespace-pre">whitespace-pre: Lorem ipsum dolor sit   amet,
-consectetur adipiscing elit.
-    Preserves spaces and line breaks.</p>
-                     <code class="text-sm text-pink-600">.whitespace-pre</code>
+                <div class="w-64 h-24 bg-gray-200 p-2 rounded overflow-auto">
+                    <p class="whitespace-pre">whitespace-pre: Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit.
+                        Preserves spaces and line breaks.</p>
+                    <code class="text-sm text-pink-600">.whitespace-pre</code>
                 </div>
-                 <div class="w-64 h-24 bg-gray-200 p-2 rounded overflow-auto">
-                    <p class="whitespace-pre-line">whitespace-pre-line: Lorem ipsum dolor sit   amet,
-consectetur adipiscing elit.
-    Collapses spaces, preserves line breaks.</p>
+                <div class="w-64 h-24 bg-gray-200 p-2 rounded overflow-auto">
+                    <p class="whitespace-pre-line">whitespace-pre-line: Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit.
+                        Collapses spaces, preserves line breaks.</p>
                     <code class="text-sm text-pink-600">.whitespace-pre-line</code>
                 </div>
                 <div class="w-64 h-24 bg-gray-200 p-2 rounded overflow-auto">
-                    <p class="whitespace-pre-wrap">whitespace-pre-wrap: Lorem ipsum dolor sit   amet, consectetur adipiscing elit. Preserves spaces, wraps text.</p>
+                    <p class="whitespace-pre-wrap">whitespace-pre-wrap: Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Preserves spaces, wraps text.</p>
                     <code class="text-sm text-pink-600">.whitespace-pre-wrap</code>
                 </div>
-                 <div class="w-64 bg-gray-200 p-2 rounded">
-                    <p class="whitespace-break-spaces">whitespace-break-spaces: Similar to pre-wrap but spaces at end of line wrap. Lorem ipsum dolor sit   amet.    </p>
-                     <code class="text-sm text-pink-600">.whitespace-break-spaces</code>
+                <div class="w-64 bg-gray-200 p-2 rounded">
+                    <p class="whitespace-break-spaces">whitespace-break-spaces: Similar to pre-wrap but spaces at end of
+                        line wrap. Lorem ipsum dolor sit amet. </p>
+                    <code class="text-sm text-pink-600">.whitespace-break-spaces</code>
                 </div>
-             </div>
+            </div>
         </section>
 
         <!-- Word Break -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">word-break</h2>
-             <p class="text-gray-600 mb-2">Controla cómo se rompen las palabras para evitar el desbordamiento.</p>
+            <p class="text-gray-600 mb-2">Controla cómo se rompen las palabras para evitar el desbordamiento.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="w-48 bg-gray-200 p-2 rounded">
-                    <p class="break-normal overflow-hidden">break-normal (Default): Breaks only at normal word break points. Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+                    <p class="break-normal overflow-hidden">break-normal (Default): Breaks only at normal word break
+                        points. Pneumonoultramicroscopicsilicovolcanoconiosis</p>
                     <code class="text-sm text-pink-600">.break-normal</code>
                 </div>
-                 <div class="w-48 bg-gray-200 p-2 rounded">
-                    <p class="break-words overflow-hidden">break-words: Allows long words to break and wrap. Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+                <div class="w-48 bg-gray-200 p-2 rounded">
+                    <p class="break-words overflow-hidden">break-words: Allows long words to break and wrap.
+                        Pneumonoultramicroscopicsilicovolcanoconiosis</p>
                     <code class="text-sm text-pink-600">.break-words</code> (Deprecated in favor of overflow-wrap)
                 </div>
                 <div class="w-48 bg-gray-200 p-2 rounded">
-                    <p class="break-all overflow-hidden">break-all: Breaks words at any character. Pneumonoultramicroscopicsilicovolcanoconiosis</p>
-                     <code class="text-sm text-pink-600">.break-all</code>
+                    <p class="break-all overflow-hidden">break-all: Breaks words at any character.
+                        Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+                    <code class="text-sm text-pink-600">.break-all</code>
                 </div>
             </div>
         </section>
 
-         <!-- Overflow Wrap (Replaces break-words) -->
+        <!-- Overflow Wrap (Replaces break-words) -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">overflow-wrap</h2>
-            <p class="text-gray-600 mb-2">Controla si el navegador puede romper líneas dentro de palabras para prevenir desbordamiento.</p>
+            <p class="text-gray-600 mb-2">Controla si el navegador puede romper líneas dentro de palabras para prevenir
+                desbordamiento.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="w-48 bg-gray-200 p-2 rounded">
-                    <p class="overflow-wrap-normal">overflow-wrap-normal (Default): Breaks only at normal word break points. Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+                    <p class="overflow-wrap-normal">overflow-wrap-normal (Default): Breaks only at normal word break
+                        points. Pneumonoultramicroscopicsilicovolcanoconiosis</p>
                     <code class="text-sm text-pink-600">.overflow-wrap-normal</code>
                 </div>
                 <div class="w-48 bg-gray-200 p-2 rounded">
-                    <p class="overflow-wrap-break-word">overflow-wrap-break-word: Allows long words to break and wrap. Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+                    <p class="overflow-wrap-break-word">overflow-wrap-break-word: Allows long words to break and wrap.
+                        Pneumonoultramicroscopicsilicovolcanoconiosis</p>
                     <code class="text-sm text-pink-600">.overflow-wrap-break-word</code>
                 </div>
             </div>
@@ -415,41 +479,47 @@ consectetur adipiscing elit.
         <!-- Hyphens -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">hyphens</h2>
-             <p class="text-gray-600 mb-2">Controla cómo se aplica la separación silábica (guiones) cuando el texto se ajusta.</p>
+            <p class="text-gray-600 mb-2">Controla cómo se aplica la separación silábica (guiones) cuando el texto se
+                ajusta.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="w-48 bg-gray-200 p-2 rounded" lang="en"> <!-- `lang` attribute is important -->
                     <p class="hyphens-none">hyphens-none: Separation silábica desactivada. Example: Establishment.</p>
                     <code class="text-sm text-pink-600">.hyphens-none</code>
                 </div>
-                 <div class="w-48 bg-gray-200 p-2 rounded" lang="en">
-                    <p class="hyphens-manual">hyphens-manual (Default): Separation solo donde se indica con &amp;shy; o guiones. Example: Estab&shy;lishment.</p>
-                     <code class="text-sm text-pink-600">.hyphens-manual</code>
+                <div class="w-48 bg-gray-200 p-2 rounded" lang="en">
+                    <p class="hyphens-manual">hyphens-manual (Default): Separation solo donde se indica con &amp;shy; o
+                        guiones. Example: Estab&shy;lishment.</p>
+                    <code class="text-sm text-pink-600">.hyphens-manual</code>
                 </div>
                 <div class="w-48 bg-gray-200 p-2 rounded" lang="en">
-                    <p class="hyphens-auto">hyphens-auto: Separation automática si el diccionario está disponible. Example: Establishment.</p>
+                    <p class="hyphens-auto">hyphens-auto: Separation automática si el diccionario está disponible.
+                        Example: Establishment.</p>
                     <code class="text-sm text-pink-600">.hyphens-auto</code>
                 </div>
             </div>
-            <p class="mt-2 text-sm text-gray-500">Nota: El efecto de `hyphens-auto` depende del navegador y del idioma (<code class="text-pink-600">lang</code> attribute).</p>
+            <p class="mt-2 text-sm text-gray-500">Nota: El efecto de `hyphens-auto` depende del navegador y del idioma
+                (<code class="text-pink-600">lang</code> attribute).</p>
         </section>
 
         <!-- Content -->
         <section>
             <h2 class="text-2xl font-semibold mb-4 border-b pb-2">content</h2>
-             <p class="text-gray-600 mb-2">Controla el valor de la propiedad `content`, usualmente con pseudo-elementos `::before` y `::after`.</p>
-             <div class="space-y-4">
+            <p class="text-gray-600 mb-2">Controla el valor de la propiedad `content`, usualmente con pseudo-elementos
+                `::before` y `::after`.</p>
+            <div class="space-y-4">
                 <p class="before:content-['Hello_']">Texto precedido por 'Hello '</p>
                 <code class="text-sm text-pink-600">.before:content-['Hello_']</code>
 
                 <p class="after:content-['*_Required'] after:ml-1 after:text-red-500">Campo Obligatorio</p>
                 <code class="text-sm text-pink-600">.after:content-['*_Required'] .after:ml-1 .after:text-red-500</code>
 
-                 <p class="before:content-none">Sin contenido before.</p>
+                <p class="before:content-none">Sin contenido before.</p>
                 <code class="text-sm text-pink-600">.before:content-none</code>
 
-                 <p class="before:content-[counter(list-item)] before:mr-2">Contador (usado a menudo con listas ordenadas)</p>
-                 <code class="text-sm text-pink-600">.before:content-[counter(list-item)]</code>
-             </div>
+                <p class="before:content-[counter(list-item)] before:mr-2">Contador (usado a menudo con listas
+                    ordenadas)</p>
+                <code class="text-sm text-pink-600">.before:content-[counter(list-item)]</code>
+            </div>
         </section>
 
     </div>
