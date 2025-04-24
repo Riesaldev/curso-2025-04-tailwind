@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Estilos de tamaño: Width y Height y Size</title>
+</head>
+
+<body class="antialiased leading-relaxed p-6 space-y-10 bg-slate-50">
+
+
+  <!-- ===================== WIDTH ===================== -->
+  <section id="width" class="space-y-6">
+    <h2 class="text-2xl font-bold">1. Width</h2>
+    <p class="italic text-sm text-gray-600">w-*, min-w-*, max-w-*</p>
+
+    <p>Clases para controlar el ancho de los elementos.</p>
+
+    <!-- Anchos fijos (w-px, w-number) -->
+    <div class="space-y-2">
+      <div class="bg-cyan-500 text-white rounded h-8 w-px flex items-center justify-center text-xs">w-px</div>
+      <div class="bg-cyan-500 text-white rounded h-8 w-12 flex items-center justify-center">w-12</div>
+      <div class="bg-cyan-500 text-white rounded h-8 w-24 flex items-center justify-center">w-24</div>
+      <div class="bg-cyan-500 text-white rounded h-8 w-48 flex items-center justify-center">w-48</div>
+      <div class="bg-cyan-500 text-white rounded h-8 w-96 flex items-center justify-center">w-96</div>
+    </div>
+
+    <!-- Anchos relativos (w-fraction, w-full) -->
+    <div class="bg-white p-4 border rounded space-y-2">
+      <div class="bg-sky-500 text-white rounded h-8 w-1/4 flex items-center justify-center">w-1/4</div>
+      <div class="bg-sky-500 text-white rounded h-8 w-1/2 flex items-center justify-center">w-1/2</div>
+      <div class="bg-sky-500 text-white rounded h-8 w-3/4 flex items-center justify-center">w-3/4</div>
+      <div class="bg-sky-500 text-white rounded h-8 w-full flex items-center justify-center">w-full</div>
+    </div>
+
+    <!-- Ancho automático (w-auto, w-min, w-max, w-fit) -->
+    <div class="bg-white p-4 border rounded space-y-2">
+      <p class="w-auto bg-violet-500 text-white rounded p-2">w-auto: toma el ancho necesario.</p>
+      <p class="w-min bg-violet-500 text-white rounded p-2">w-min: toma el ancho mínimo del contenido (la palabra más
+        larga).</p>
+      <p class="w-max bg-violet-500 text-white rounded p-2">w-max: toma el ancho máximo sin saltos de línea.</p>
+      <p class="w-fit bg-violet-500 text-white rounded p-2">w-fit: similar a w-auto pero más consistente entre
+        navegadores.</p>
+    </div>
+
+
+    <!-- MIN Width (min-w-*) -->
+    <h3 class="text-xl font-semibold">Min Width</h3>
+    <div class="bg-white p-4 border rounded">
+      <div class="overflow-x-auto"> <!-- Contenedor para scroll si es necesario -->
+        <div class="bg-rose-500 text-white rounded p-4 min-w-96">min-w-96 (No se encogerá menos de 24rem)</div>
+      </div>
+      <div class="bg-rose-500 text-white rounded p-4 min-w-full mt-2">min-w-full</div>
+      <div class="bg-rose-500 text-white rounded p-4 min-w-min mt-2 inline-block">min-w-min</div>
+    </div>
+
+    <!-- MAX Width (max-w-*) -->
+    <h3 class="text-xl font-semibold">Max Width</h3>
+    <div class="bg-white p-4 border rounded space-y-2">
+      <div class="bg-pink-500 text-white rounded p-4 max-w-xs">max-w-xs (20rem máx.)</div>
+      <div class="bg-pink-500 text-white rounded p-4 max-w-md">max-w-md (28rem máx.)</div>
+      <div class="bg-pink-500 text-white rounded p-4 max-w-xl">max-w-xl (36rem máx.)</div>
+      <div class="bg-pink-500 text-white rounded p-4 max-w-full">max-w-full</div>
+      <div class="bg-pink-500 text-white rounded p-4 max-w-screen-sm">max-w-screen-sm (hasta breakpoint 'sm')</div>
+      <div class="max-w-prose bg-gray-200 text-gray-800 p-4 rounded">max-w-prose: Ideal para bloques de texto, limita el
+        ancho para mejorar la legibilidad. Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+      <div class="bg-pink-500 text-white rounded p-4 max-w-none">max-w-none (sin límite)</div>
+    </div>
+
+    <!-- Barras horizontales comparando anchos -->
+    <div class="space-y-4">
+      <div class="bg-cyan-500 text-white rounded h-8 w-24 flex items-center justify-center">w-24</div>
+      <div class="bg-cyan-500 text-white rounded h-8 w-48 flex items-center justify-center">w-48</div>
+      <div class="bg-cyan-500 text-white rounded h-8 w-1/2 flex items-center justify-center">w-1/2</div>
+    </div>
+
+    <!-- Max width limita el crecimiento -->
+    <div class="bg-white p-4 border rounded">
+      <div class="bg-sky-500 text-white rounded p-4 max-w-xs">max-w-xs (300 px máx.)</div>
+    </div>
+  </section>
+
+  <!-- ===================== HEIGHT ===================== -->
+  <section id="height" class="space-y-6">
+    <h2 class="text-2xl font-bold">2. Height</h2>
+    <p class="italic text-sm text-gray-600">h-*, min-h-*, max-h-*</p>
+
+    <p>Clases para controlar la altura de los elementos.</p>
+
+    <!-- Alturas fijas (h-px, h-number) -->
+    <div class="flex gap-4 items-end">
+      <div class="bg-fuchsia-500 text-white rounded w-16 h-px text-xs flex items-center justify-center">h-px</div>
+      <div class="bg-fuchsia-500 text-white rounded w-16 h-12 flex items-center justify-center">h-12</div>
+      <div class="bg-fuchsia-500 text-white rounded w-16 h-24 flex items-center justify-center">h-24</div>
+      <div class="bg-fuchsia-500 text-white rounded w-16 h-48 flex items-center justify-center">h-48</div>
+      <div class="bg-fuchsia-500 text-white rounded w-16 h-96 flex items-center justify-center">h-96</div>
+    </div>
+
+    <!-- Alturas relativas (h-fraction, h-full) -->
+    <div class="bg-white p-4 border rounded h-64 flex gap-4 items-end"> <!-- Contenedor padre con altura fija -->
+      <div class="bg-purple-500 text-white rounded w-16 h-1/4 flex items-center justify-center">h-1/4</div>
+      <div class="bg-purple-500 text-white rounded w-16 h-1/2 flex items-center justify-center">h-1/2</div>
+      <div class="bg-purple-500 text-white rounded w-16 h-3/4 flex items-center justify-center">h-3/4</div>
+      <div class="bg-purple-500 text-white rounded w-16 h-full flex items-center justify-center">h-full</div>
+    </div>
+
+    <!-- Altura viewport (h-screen, h-svh, h-lvh, h-dvh) -->
+    <div class="flex gap-4">
+      <div class="bg-indigo-500 text-white rounded h-32 w-1/4 flex items-center justify-center text-center">
+        h-screen<br>(Altura completa viewport estable)</div>
+      <div class="bg-indigo-700 text-white rounded h-32 w-1/4 flex items-center justify-center text-center">
+        h-svh<br>(Altura viewport pequeña)</div>
+      <div class="bg-indigo-700 text-white rounded h-32 w-1/4 flex items-center justify-center text-center">
+        h-lvh<br>(Altura viewport grande)</div>
+      <div class="bg-indigo-700 text-white rounded h-32 w-1/4 flex items-center justify-center text-center">
+        h-dvh<br>(Altura viewport dinámica)</div>
+    </div>
+
+    <!-- Altura automática (h-auto, h-min, h-max, h-fit) -->
+    <div class="bg-white p-4 border rounded flex gap-4 h-48 items-start">
+      <div class="bg-violet-500 text-white rounded p-2 h-auto w-24">h-auto: toma la altura necesaria.</div>
+      <div class="bg-violet-500 text-white rounded p-2 h-min w-24">h-min: toma la altura mínima del contenido.</div>
+      <div class="bg-violet-500 text-white rounded p-2 h-max w-24">h-max: toma la altura máxima sin saltos de línea
+        (menos útil para altura).</div>
+      <div class="bg-violet-500 text-white rounded p-2 h-fit w-24">h-fit: similar a h-auto.</div>
+    </div>
+
+    <!-- MIN Height (min-h-*) -->
+    <h3 class="text-xl font-semibold">Min Height</h3>
+    <div class="flex gap-6 items-start">
+      <div class="bg-red-500 text-white rounded w-24 h-24 flex items-center justify-center text-center">h-24<br>(Base)
+      </div>
+      <div class="bg-red-500 text-white rounded w-24 h-24 min-h-32 flex items-center justify-center text-center">
+        h-24<br>min-h-32</div>
+      <div class="bg-red-500 text-white rounded w-24 min-h-48 flex items-center justify-center text-center">min-h-48
+      </div>
+      <div class="bg-red-500 text-white rounded w-24 min-h-full flex items-center justify-center text-center h-64">
+        min-h-full (Necesita padre con altura)</div>
+      <div class="bg-red-500 text-white rounded w-24 min-h-screen flex items-center justify-center text-center">
+        min-h-screen</div>
+    </div>
+
+
+    <!-- MAX Height (max-h-*) -->
+    <h3 class="text-xl font-semibold">Max Height</h3>
+    <div class="flex gap-6 items-start">
+      <div class="bg-orange-500 text-white rounded w-32 p-2 h-64 max-h-48 overflow-auto">max-h-48 con overflow: Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.</div>
+      <div class="bg-orange-500 text-white rounded w-32 p-2 h-64 max-h-full overflow-auto">max-h-full (Necesita padre
+        con altura)</div>
+      <div class="bg-orange-500 text-white rounded w-32 p-2 h-64 max-h-screen overflow-auto">max-h-screen</div>
+      <div class="bg-orange-500 text-white rounded w-32 p-2 max-h-none">max-h-none (sin límite)</div>
+    </div>
+
+    <!-- Columnas con diferentes alturas -->
+    <div class="flex gap-6">
+      <div class="bg-fuchsia-500 text-white rounded w-24 h-24 flex items-center justify-center">h-24</div>
+      <div class="bg-fuchsia-500 text-white rounded w-24 h-48 flex items-center justify-center">h-48</div>
+      <div class="bg-fuchsia-500 text-white rounded w-24 h-24 min-h-32 flex items-center justify-center text-center">
+        h-24<br>min-h-32
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SIZE ===================== -->
+  <section id="size" class="space-y-6">
+    <h2 class="text-2xl font-bold">3. Size</h2>
+    <p class="italic text-sm text-gray-600">size-*</p>
+    <p>Controla anchura y altura simultáneamente.</p>
+
+    <div class="flex gap-4 items-center">
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-12">size-12</div>
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-24">size-24</div>
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-32">size-32</div>
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-48">size-48</div>
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-1/2">size-1/2 (Relativo al padre)
+      </div>
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-full">size-full (Relativo al
+        padre)</div>
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-auto">size-auto</div>
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-min">size-min</div>
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-max">size-max</div>
+      <div class="bg-lime-500 text-white rounded flex items-center justify-center size-fit">size-fit</div>
+    </div>
+  </section>
+
+
+
+</body>
+
+</html>

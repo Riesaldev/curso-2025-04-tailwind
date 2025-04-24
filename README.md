@@ -207,3 +207,28 @@ npm run dev
     * size-auto
     * size-full
     * size-[32px]
+
+
+
+
+
+
+## Equivalencias en el espaciado:
+
+  La base del espaciado en Tailwind es una escala numérica configurable. Por defecto:
+
+*   `0` -> `0px`
+*   `px` -> `1px`
+*   `0.5` -> `0.125rem` (2px)
+*   `1` -> `0.25rem` (4px)
+*   `1.5` -> `0.375rem` (6px)
+*   `2` -> `0.5rem` (8px)
+*   `2.5` -> `0.625rem` (10px)
+*   `3` -> `0.75rem` (12px)
+*   `3.5` -> `0.875rem` (14px)
+*   `4` -> `1rem` (16px)
+*   ... y así sucesivamente (5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 72, 80, 96).
+
+Tamaños:
+
+`max-w-xs` (`20rem`), `max-w-sm` (`24rem`), `max-w-md` (`28rem`), `max-w-lg` (`32rem`), `max-w-xl` (`36rem`), `max-w-2xl` (`42rem`), `max-w-3xl` (`48rem`), `max-w-4xl` (`56rem`), `max-w-5xl` (`64rem`), `max-w-6xl` (`72rem`), `max-w-7xl` (`80rem`)

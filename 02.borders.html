@@ -14,7 +14,7 @@
     <!-- ============ BORDERS ============ -->
     <section id="borders" class="space-y-8">
         <!-- border-width -->
-        <h2 class="text-2xl font-bold">border-width</h2>
+        <h2 class="text-2xl font-bold">1. border-width</h2>
 
         <!-- Todos los lados -->
         <div style="width:12rem" class="border p-2 mb-3">
@@ -68,7 +68,7 @@
 
         <!-- border-color -->
         <h2 class="text-2xl font-bold mt-10">border-color</h2>
-        <div style="width:12rem" class="border-4 border-red-500 p-2 mb-3">
+        <div style="width:12rem" class="border-4 text-red-500 border-red-500 p-2 mb-3">
             border-red-500
         </div>
         <div style="width:12rem" class="border-4 border-emerald-500 p-2 mb-3">
@@ -96,8 +96,10 @@
 
         <!-- outline-width -->
         <h2 class="text-2xl font-bold">outline-width</h2>
+        <p>Se utilizan para crear un contorno alrededor de un elemento. Ayudan a hacer más interactivos ciertos
+            elementos como botones e inputs.</p>
         <button
-            class="rounded-md border border-gray-300 bg-white text-sm font-semibold text-gray-700 outline outline-offset-1 outline-blue-500 px-4 py-1 mb-3">
+            class="rounded-md border border-gray-300 bg-white text-sm font-semibold text-gray-700 hover:outline outline-offset-1 outline-blue-500 px-4 py-1 mb-3">
             outline outline-offset-1
         </button>
         <br>
@@ -186,14 +188,14 @@
             focus-visible:outline-2
             focus-visible:outline-dotted
             focus-visible:outline-indigo-300">
-         dotted
-     </button>
-     <button class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-fuchsia-500 focus:outline-none transition duration-400
+                dotted
+            </button>
+            <button class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-fuchsia-500 focus:outline-none transition duration-400
      focus-visible:outline-2
      focus-visible:outline-dotted
      focus-visible:outline-indigo-300">
-  dotted
-</button>
+                dotted
+            </button>
         </div>
 
         <p class="mt-4 text-sm text-gray-600">
@@ -205,12 +207,16 @@
     <section>
         <h2 class="text-xl font-semibold mb-2">Input con contorno personalizado</h2>
 
-        <div class=""><label
-                class="mx-auto block max-w-xs"><span class="text-sm font-medium text-gray-500">Email
-                    address</span><input placeholder="jane@example.com"
-                    class="block w-full rounded-lg border-2 border-gray-700 px-3 py-2 font-sans text-sm leading-5 
-                    text-gray-500 focus:border-pink-600 focus:outline-none "
-                    type="text"></label></div>
+        <div class="">
+            <label class="mx-auto block max-w-xs">
+                <span class="text-sm font-medium text-gray-500">Email address</span>
+                <input placeholder="jane@example.com" 
+                class="block w-full rounded-lg border-2 border-gray-700 
+                px-3 py-2 font-sans text-sm leading-5 
+                text-gray-500 focus:border-pink-600 focus:outline-none" 
+                type="text">
+            </label>
+        </div>
     </section>
 
     <!-- 3. Botón que indica "activo" en lugar de "en foco" -->
