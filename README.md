@@ -210,9 +210,22 @@ npm run dev
 
 ## 5. Backgrounds
 
+* bg-cover
+* bg-fixed
+* bg-no-repeat
 
+## 6. Flexbox
 
+* Clases básicas para contenedores
+  * flex: Activa flexbox
+  * flex-col: Dirección vertical (columna)
+  * flex-row: Dirección horizontal (fila, por defecto)
+  * gap-2, gap-4: Espaciado entre elementos (0.5rem, 1rem)
 
+* Alineación y distribución
+  * justify-start/center/end/between: Alineación horizontal
+  * items-start/center/end/stretch: Alineación vertical
+  * flex-wrap: Permite que los elementos pasen a la siguiente línea
 
 
 
