@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Estilos de Background </title>
+</head>
+
+<body class="antialiased leading-relaxed p-6 space-y-10 bg-slate-50">
+  <h1 class="text-3xl font-bold text-slate-900">Backgrounds en Tailwind CSS</h1>
+
+  <!-- Background Attachment -->
+  <section>
+    <h2 class="text-2xl font-semibold text-slate-800 mb-4">1. Background attachment</h2>
+    <p class="mb-4 text-slate-600">Controla cómo se comporta una imagen de fondo al hacer scroll.</p>
+    <div class="space-y-6">
+      <div>
+        <h3 class="text-lg font-medium text-slate-700 mb-2">bg-fixed</h3>
+        <p class="text-sm text-slate-500 mb-2">El fondo es fijo con respecto al viewport.</p>
+        <div class="h-40 overflow-auto border border-slate-300 rounded bg-fixed bg-center bg-no-repeat" style="background-image: url('https://placehold.co/200x200/E2E8F0/94A3B8?text=Fixed')">
+          <div class="h-80">Scrollable content...</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-lg font-medium text-slate-700 mb-2">bg-local</h3>
+        <p class="text-sm text-slate-500 mb-2">El fondo se desplaza con el contenido del elemento.</p>
+        <div class="h-40 overflow-auto border border-slate-300 rounded bg-local bg-center bg-no-repeat" style="background-image: url('https://placehold.co/200x200/D1FAE5/34D399?text=Local')">
+          <div class="h-80">Scrollable content...</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-lg font-medium text-slate-700 mb-2">bg-scroll (default)</h3>
+        <p class="text-sm text-slate-500 mb-2">El fondo es fijo con respecto al elemento, no se desplaza con el contenido.</p>
+        <div class="h-40 overflow-auto border border-slate-300 rounded bg-scroll bg-center bg-no-repeat" style="background-image: url('https://placehold.co/200x200/DBEAFE/60A5FA?text=Scroll')">
+          <div class="h-80">Scrollable content...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Background Clip -->
+  <section>
+    <h2 class="text-2xl font-semibold text-slate-800 mb-4">2. Background Clip</h2>
+    <p class="mb-4 text-slate-600">Controla hasta dónde se extiende el fondo dentro de un elemento.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="border-4 border-dashed border-pink-500 p-4 bg-blue-500 bg-clip-border">
+        <p class="bg-white p-2">bg-clip-border (default) El fondo se extiende hasta el borde exterior. </p>
+      </div>
+      <div class="border-4 border-dashed border-pink-500 p-4 bg-green-500 bg-clip-padding">
+        <p class="bg-white p-2">bg-clip-padding El fondo se extiende hasta el borde interior del elemento.</p>
+      </div>
+      <div class="border-4 border-dashed border-pink-500 p-4 bg-yellow-500 bg-clip-content">
+        <p class="p-2">bg-clip-content El fondo se recorta (clip) para ajustarse al área de contenido.</p>
+      </div>
+      <div class="p-4">
+         <p class="text-4xl text-center p-2 font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+           bg-clip-text
+         </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Background Color -->
+  <section>
+    <h2 class="text-2xl font-semibold text-slate-800 mb-4">3. Background Color</h2>
+    <p class="mb-4 text-slate-600">Establece el color de fondo de un elemento.</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="h-20 rounded bg-sky-500 flex items-center justify-center text-white font-medium">bg-sky-500</div>
+      <div class="h-20 rounded bg-indigo-700 flex items-center justify-center text-white font-medium">bg-indigo-700</div>
+      <div class="h-20 rounded bg-rose-500/75 flex items-center justify-center text-white font-medium">bg-rose-500/75 (opacity)</div>
+      <div class="h-20 rounded bg-amber-400 flex items-center justify-center text-black font-medium">bg-amber-400</div>
+    </div>
+  </section>
+
+  <!-- Background Image -->
+  <section>
+    <h2 class="text-2xl font-semibold text-slate-800 mb-4">4. Background Image</h2>
+    <p class="mb-4 text-slate-600">Establece la imagen de fondo de un elemento.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="h-40 rounded bg-slate-200 flex items-center justify-center text-slate-600 font-medium bg-none">bg-none</div>
+      <div class="h-40 rounded bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white font-medium">Gradient</div>
+      <div class="h-40 rounded bg-cover bg-center" style="background-image: url('https://placehold.co/600x400/0EA5E9/FFFFFF?text=URL+Image')"></div>
+    </div>
+
+  <div class="space-y-8">
+
+    
+        <!-- 1. Imagen de Fondo con URL -->
+        <div>
+            <h2 class="text-xl font-semibold mb-2 text-slate-700">1. Imagen de Fondo con <code>bg-[url(...)]</code></h2>
+            <p class="text-slate-600 mb-3">
+                Se utiliza una URL arbitraria para establecer la imagen de fondo.
+                Combinado con <code>bg-cover</code> para que cubra el div y <code>bg-center</code> para centrarla.
+                Clases añadidas: <code>h-48 w-full rounded-lg flex items-center justify-center</code>.
+            </p>
+    
+            <div class="
+                h-48 w-full rounded-lg flex items-center justify-center /* Estilos base */
+                bg-[url('https://placehold.co/600x400/A5B4FC/312E81?text=Imagen+URL')] /* Imagen de fondo */
+                bg-cover bg-center /* Ajuste de imagen */
+            ">
+               <span class="bg-black/60 px-4 py-2 rounded text-white font-bold text-xl">Imagen de Fondo</span>
+            </div>
+   
+            <code class="block bg-slate-200 p-2 mt-2 rounded text-sm text-slate-800 overflow-x-auto">
+                <div class="h-48 rounded-lg flex items-center justify-center bg-[url('...')] bg-cover bg-center">...</div>
+            </code>
+        </div>
+
+        <!-- 2. Gradiente Lineal -->
+        <div>
+            <h2 class="text-xl font-semibold mb-2 text-slate-700">2. Gradiente Lineal (<code>bg-gradient-to-...</code>)</h2>
+            <p class="text-slate-600 mb-3">
+                Se crea un gradiente lineal de izquierda a derecha (<code>bg-gradient-to-r</code>)
+                usando colores definidos con <code>from-</code>, <code>via-</code>, y <code>to-</code>.
+                Clases añadidas: <code>h-48 w-full rounded-lg flex items-center justify-center</code>.
+            </p>
+     
+            <div class="
+                h-48 w-full rounded-lg flex items-center justify-center /* Estilos base */
+                bg-gradient-to-r from-sky-500 via-purple-500 to-pink-500 /* Gradiente */
+            ">
+                <span class="bg-black/60 px-4 py-2 rounded text-white font-bold text-xl">Gradiente Lineal</span>
+            </div>
+
+             <code class="block bg-slate-200 p-2 mt-2 rounded text-sm text-slate-800 overflow-x-auto">
+                <div class="h-48 rounded-lg flex items-center justify-center bg-gradient-to-r from-sky-500 via-purple-500 to-pink-500">...</div>
+            </code>
+        </div>
+
+         <!-- 3. Gradiente Lineal Diagonal -->
+        <div>
+            <h2 class="text-xl font-semibold mb-2 text-slate-700">3. Gradiente Lineal Diagonal</h2>
+            <p class="text-slate-600 mb-3">
+                Gradiente hacia la esquina inferior derecha (<code>bg-gradient-to-br</code>) con solo dos colores (<code>from-</code> y <code>to-</code>).
+                Clases añadidas: <code>h-48 w-full rounded-lg flex items-center justify-center</code>.
+            </p>
+       
+            <div class="
+                h-48 w-full rounded-lg flex items-center justify-center /* Estilos base */
+                bg-gradient-to-br from-green-400 to-blue-500 /* Gradiente */
+            ">
+                <span class="bg-black/60 px-4 py-2 rounded text-white font-bold text-xl">Gradiente Diagonal</span>
+            </div>
+           
+             <code class="block bg-slate-200 p-2 mt-2 rounded text-sm text-slate-800 overflow-x-auto">
+                <div class="h-48 rounded-lg flex items-center justify-center bg-gradient-to-br from-green-400 to-blue-500">...</div>
+            </code>
+        </div>
+
+        <!-- 4. Sin Imagen de Fondo -->
+        <div>
+            <h2 class="text-xl font-semibold mb-2 text-slate-700">4. Sin Imagen de Fondo (<code>bg-none</code>)</h2>
+            <p class="text-slate-600 mb-3">
+                La clase <code>bg-none</code> elimina cualquier imagen de fondo. Se añade <code>bg-slate-300</code> para visibilidad.
+                Clases añadidas: <code>h-48 w-full rounded-lg flex items-center justify-center</code>.
+            </p>
+      
+            <div class="
+                h-48 w-full rounded-lg flex items-center justify-center /* Estilos base */
+                bg-none bg-slate-300 /* Sin imagen, con color sólido */
+                text-slate-800 /* Color de texto oscuro para contraste con fondo claro */
+            ">
+              
+                <span class="font-bold text-xl">bg-none (Sin Imagen)</span>
+            </div>
+          
+             <code class="block bg-slate-200 p-2 mt-2 rounded text-sm text-slate-800 overflow-x-auto">
+                <div class="h-48 rounded-lg flex items-center justify-center bg-none bg-slate-300">...</div>
+            </code>
+        </div>
+
+        <!-- Sección Hero -->
+        <section
+        class="
+            relative /* Necesario para posicionar el overlay */
+            h-screen /* Altura completa de la ventana */
+            bg-[url('https://placehold.co/1920x1080/64748B/FFF?text=Fondo+Hero')] /* Imagen de placehold.co */
+            bg-cover /* Asegura que la imagen cubra todo el contenedor */
+            bg-center /* Centra la imagen */
+            flex /* Habilita Flexbox para centrar contenido */
+            items-center /* Centra verticalmente */
+            justify-center /* Centra horizontalmente */
+            text-center /* Centra el texto si se envuelve */
+        "
+    >
+        <!-- Overlay semi-transparente para mejorar contraste (opcional pero recomendado) -->
+        <div class="absolute inset-0 bg-black/40"></div>
+        <!-- Contenido del Hero (encima del overlay) -->
+        <div class="relative z-10 px-4">
+            <h1 class="
+                text-white /* Color del texto */
+                text-5xl /* Tamaño grande */
+                md:text-6xl /* Más grande en pantallas medianas */
+                lg:text-7xl /* Aún más grande en pantallas grandes */
+                font-extrabold /* Peso de la fuente */
+                mb-6 /* Margen inferior */
+                drop-shadow-lg /* Sombra suave para legibilidad */
+            ">
+                Título Impactante del Hero
+            </h1>
+            <button class="
+                bg-indigo-600 /* Color de fondo del botón */
+                hover:bg-indigo-700 /* Color al pasar el ratón */
+                text-white /* Color del texto del botón */
+                font-semibold /* Peso de la fuente */
+                py-3 /* Padding vertical */
+                px-8 /* Padding horizontal */
+                rounded-lg /* Bordes redondeados */
+                text-lg /* Tamaño del texto del botón */
+                transition-colors /* Transición suave de color */
+                duration-200 /* Duración de la transición */
+                focus-visible:outline /* Estilo de foco (accesibilidad) */
+                focus-visible:outline-2
+                focus-visible:outline-offset-2
+                focus-visible:outline-indigo-400
+            ">
+                Llamada a la Acción
+            </button>
+        </div>
+    </section>
+
+    <!-- Contenido adicional de la página (para demostrar el scroll) -->
+    <div class="p-8 h-96 bg-white">
+        <h2 class="text-2xl font-bold mb-4">Otra sección de contenido</h2>
+        <p>Este contenido está debajo del Hero para que veas cómo ocupa toda la pantalla inicial.</p>
+    </div>
+
+</div>
+</section>
+  <!-- Background Origin -->
+  <section>
+      <h2 class="text-2xl font-semibold text-slate-800 mb-4">5. Background Origin</h2>
+      <p class="mb-4 text-slate-600">Controla dónde se posiciona la imagen de fondo de un elemento.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="w-48 h-48 border-4 border-dashed border-pink-500 p-4 bg-no-repeat" style="background-image: url('https://placehold.co/50x50/FBCFE8/DB2777?text=O')">
+              <p class="text-sm text-slate-500">Default (padding-box)</p>
+          </div>
+          <div class="w-48 h-48 border-4 border-dashed border-pink-500 p-4 bg-origin-border bg-no-repeat" style="background-image: url('https://placehold.co/50x50/FBCFE8/DB2777?text=O')">
+              <p class="text-sm text-slate-500">bg-origin-border</p>
+          </div>
+          <div class="w-48 h-48 border-4 border-dashed border-pink-500 p-4 bg-origin-content bg-no-repeat" style="background-image: url('https://placehold.co/50x50/FBCFE8/DB2777?text=O')">
+              <p class="text-sm text-slate-500">bg-origin-content</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- Background Position -->
+  <section>
+    <h2 class="text-2xl font-semibold text-slate-800 mb-4">6. Background Position</h2>
+    <p class="mb-4 text-slate-600">Controla la posición de la imagen de fondo.</p>
+    <div class="grid grid-cols-3 gap-4">
+      <div class="h-32 rounded border border-slate-300 bg-no-repeat bg-left-top" style="background-image: url('https://placehold.co/100x50/BFDBFE/1E40AF?text=Pos')">bg-left-top</div>
+      <div class="h-32 rounded border border-slate-300 bg-no-repeat bg-top" style="background-image: url('https://placehold.co/100x50/BFDBFE/1E40AF?text=Pos')">bg-top</div>
+      <div class="h-32 rounded border border-slate-300 bg-no-repeat bg-right-top" style="background-image: url('https://placehold.co/100x50/BFDBFE/1E40AF?text=Pos')">bg-right-top</div>
+      <div class="h-32 rounded border border-slate-300 bg-no-repeat bg-left" style="background-image: url('https://placehold.co/100x50/BFDBFE/1E40AF?text=Pos')">bg-left</div>
+      <div class="h-32 rounded border border-slate-300 bg-no-repeat bg-center" style="background-image: url('https://placehold.co/100x50/BFDBFE/1E40AF?text=Pos')">bg-center</div>
+      <div class="h-32 rounded border border-slate-300 bg-no-repeat bg-right" style="background-image: url('https://placehold.co/100x50/BFDBFE/1E40AF?text=Pos')">bg-right</div>
+      <div class="h-32 rounded border border-slate-300 bg-no-repeat bg-left-bottom" style="background-image: url('https://placehold.co/100x50/BFDBFE/1E40AF?text=Pos')">bg-left-bottom</div>
+      <div class="h-32 rounded border border-slate-300 bg-no-repeat bg-bottom" style="background-image: url('https://placehold.co/100x50/BFDBFE/1E40AF?text=Pos')">bg-bottom</div>
+      <div class="h-32 rounded border border-slate-300 bg-no-repeat bg-right-bottom" style="background-image: url('https://placehold.co/100x50/BFDBFE/1E40AF?text=Pos')">bg-right-bottom</div>
+    </div>
+  </section>
+
+  <!-- Background Repeat -->
+  <section>
+    <h2 class="text-2xl font-semibold text-slate-800 mb-4">7. Background Repeat</h2>
+    <p class="mb-4 text-slate-600">Controla cómo se repite una imagen de fondo.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="h-40 rounded border border-slate-300 bg-repeat" style="background-image: url('https://placehold.co/50x50/FECACA/DC2626?text=Rpt')">bg-repeat</div>
+      <div class="h-40 rounded border border-slate-300 bg-no-repeat bg-center" style="background-image: url('https://placehold.co/50x50/FECACA/DC2626?text=Rpt')">bg-no-repeat</div>
+      <div class="h-40 rounded border border-slate-300 bg-repeat-x" style="background-image: url('https://placehold.co/50x50/FECACA/DC2626?text=Rpt')">bg-repeat-x</div>
+      <div class="h-40 rounded border border-slate-300 bg-repeat-y" style="background-image: url('https://placehold.co/50x50/FECACA/DC2626?text=Rpt')">bg-repeat-y</div>
+      <div class="h-40 rounded border border-slate-300 bg-repeat-round" style="background-image: url('https://placehold.co/50x50/FECACA/DC2626?text=Rpt')">bg-repeat-round</div>
+      <div class="h-40 rounded border border-slate-300 bg-repeat-space" style="background-image: url('https://placehold.co/50x50/FECACA/DC2626?text=Rpt')">bg-repeat-space</div>
+    </div>
+  </section>
+
+  <!-- Background Size -->
+  <section>
+    <h2 class="text-2xl font-semibold text-slate-800 mb-4">8. Background Size</h2>
+    <p class="mb-4 text-slate-600">Controla el tamaño de la imagen de fondo.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="h-40 rounded border border-slate-300 bg-no-repeat bg-center bg-auto" style="background-image: url('https://placehold.co/150x75/A5F3FC/0891B2?text=Size')">bg-auto</div>
+      <div class="h-40 rounded border border-slate-300 bg-no-repeat bg-center bg-cover" style="background-image: url('https://placehold.co/150x75/A5F3FC/0891B2?text=Size')">bg-cover</div>
+      <div class="h-40 rounded border border-slate-300 bg-no-repeat bg-center bg-contain" style="background-image: url('https://placehold.co/150x75/A5F3FC/0891B2?text=Size')">bg-contain</div>
+    </div>
+  </section>
+
+</body>
+
+</html>
