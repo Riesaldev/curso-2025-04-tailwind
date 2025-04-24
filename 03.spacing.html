@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Estilos de espaciado: Padding y Margin</title>
+</head>
+
+<body class="antialiased leading-relaxed p-6 space-y-10 bg-slate-50">
+
+  <!-- ---------- PADDING ---------- -->
+  <section id="padding" class="space-y-4">
+    <h2 class="text-2xl font-bold">1. Padding</h2>
+
+    <!-- Misma caja, distintos rellenos -->
+    <div class="border p-2">p-2</div>
+    <div class="border p-4">p-4</div>
+    <div class="border p-8">p-8</div>
+
+    <!-- Eje horizontal vs. vertical -->
+    <div class="border bg-white px-8 py-2">px-8 · py-2</div>
+
+    <!-- Lados individuales -->
+    <div class="border bg-white pt-8 pb-2">pt-8 · pb-2</div>
+
+    <!-- Misma caja con tres rellenos -->
+    <div class="flex justify-center gap-6">
+      <div class="bg-indigo-500 text-white rounded p-2">p-2</div>
+      <div class="bg-indigo-500 text-white rounded p-6">p-6</div>
+      <div class="bg-indigo-500 text-white rounded p-12">p-12</div>
+    </div>
+
+    <!-- Eje horizontal vs vertical -->
+    <div class="flex justify-center gap-6">
+      <div class="bg-pink-500 text-white rounded px-8 py-2">px-8 · py-2</div>
+      <div class="bg-pink-500 text-white rounded px-2 py-8">px-2 · py-8</div>
+    </div>
+    
+
+    <!-- Uso de padding y background y border para crear un botón -->
+    <p>Combinar padding, background, border y hover para crear un botón:</p>
+    <button class="px-4 py-2 border bg-sky-600 text-white rounded hover:bg-sky-700 cursor-pointer"
+      onclick="alert('Hola')">
+      Ver
+    </button>
+    <button class="px-4 py-2 border bg-emerald-600 text-white rounded hover:bg-emerald-700 cursor-pointer"
+      onclick="alert('Hola')">
+      Editar
+    </button>
+    <button class="px-4 py-2 border bg-red-600 text-white rounded hover:bg-red-700 cursor-pointer"
+      onclick="alert('Hola')">Borrar</button>
+
+      <div class="flex justify-center font-mono text-sm leading-6 font-bold text-white">
+        <div class="relative rounded-lg bg-violet-500 p-8">
+          <div
+            class="absolute inset-0 rounded-lg text-white/50 bg-[size:8px_8px] bg-top-left bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,transparent_0,transparent_50%)]">
+          </div>
+          <div class="relative bg-violet-500 p-4">p-8</div>
+        </div>
+      </div>
+      
+  </section>
+
+  <!-- ---------- MARGIN ---------- -->
+  <section id="margin" class="space-y-4">
+    <h2 class="text-2xl font-bold">2. Margin</h2>
+
+    <!-- Márgenes verticales crecientes -->
+    <div class="border mb-2">mb-2</div>
+    <div class="border mb-4">mb-4</div>
+    <div class="border mb-6">mb-6</div>
+    <div class="border mb-8">mb-8</div>
+
+    <!-- Márgenes horizontales crecientes -->
+    <div class="border mx-2">mx-2</div>
+    <div class="border mx-4">mx-4</div>
+    <div class="border mx-6">mx-6</div>
+    <div class="border mx-8">mx-8</div>
+
+    <!-- Contenedor guía para ver el margen -->
+    <div class="border-4 border-dashed border-slate-400 p-4 bg-white">
+      <div class="bg-emerald-500 text-white rounded m-2 p-4">m-2</div>
+      <div class="bg-emerald-500 text-white rounded m-6 p-4">m-6</div>
+      <div class="bg-emerald-500 text-white rounded m-12 p-4">m-12</div>
+    </div>
+
+    <!-- Sólo margen superior e inferior (my) -->
+    <div class="flex flex-col items-center bg-white p-4 border rounded space-y-0">
+      <div class="bg-orange-500 text-white rounded my-0 px-4">my-0</div>
+      <div class="bg-orange-500 text-white rounded my-6 px-4">my-6</div>
+      <div class="bg-orange-500 text-white rounded my-12 px-4">my-12</div>
+    </div>
+
+    <!-- Separación horizontal usando mx -->
+    <div class="flex gap-0">
+      <div class="border bg-white mx-0 px-2">mx-0</div>
+      <div class="border bg-white mx-4 px-2">mx-4</div>
+      <div class="border bg-white mx-8 px-2">mx-8</div>
+    </div>
+  </section>
+
+
+
+
+  
+
+
+</body>
+
+</html>
