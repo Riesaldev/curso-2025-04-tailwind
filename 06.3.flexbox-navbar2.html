@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CSS 4.1 in the browser -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Navbar en Tailwind CSS</title>
+</head>
+
+<body>
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="flex justify-between items-center">
+            <div class="font-bold text-xl">LOGO</div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-blue-200">Inicio</a>
+                <a href="#" class="hover:text-blue-200">Nosotros</a>
+                <a href="#" class="hover:text-blue-200">Contacto</a>
+            </div>
+            
+            <div class="md:hidden">
+              <!-- El checkbox actúa como "peer" (elemento compañero) ESTA SOLUCIÓN ES PARA EVITAR USAR JS -->
+                <input type="checkbox" id="menu-toggle" class="hidden peer">
+                
+                <label for="menu-toggle" class="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </label>
+                
+              <!-- peer-checked:flex lo muestra, absolute con right-0 left-0 lo hace ocupar todo el ancho top-[3.5rem] lo coloca justo debajo de la navbar -->
+                <div class="hidden peer-checked:flex peer-checked:shadow-lg flex-col absolute right-0 left-0 top-[3.5rem] bg-blue-500  text-center py-4 ">
+                    <a href="#" class="py-2 hover:bg-blue-600">Inicio</a>
+                    <a href="#" class="py-2 hover:bg-blue-600">Nosotros</a>
+                    <a href="#" class="py-2 hover:bg-blue-600">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CSS 4.1 in the browser -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Navbar en Tailwind CSS</title>
+</head>
+
+<body>
+    <nav class="bg-gray-800 text-white p-4">
+
+        <div class="flex items-center justify-between">
+
+            <div class="text-xl font-bold">MiLogo</div>
+
+            <div class="hidden md:flex md:space-x-4">
+                <a href="#" class="hover:text-gray-300">Servicios</a>
+                <a href="#" class="hover:text-gray-300">Nosotros</a>
+                <a href="#" class="hover:text-gray-300">Contacto</a>
+            </div>
+
+            <button class="md:hidden" onclick="toggleMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id = "mobile-menu" class="hidden mt-2 gap-2">
+            <a href="#" class="block p-2 hover:text-gray-300">Servicios</a>
+            <a href="#" class="block p-2 hover:text-gray-300">Nosotros</a>
+            <a href="#" class="block p-2 hover:text-gray-300">Contacto</a>
+        </div>
+
+    </nav>
+
+
+</body>
+<script>
+    function toggleMenu() {
+        // document.getElementById('mobile-menu').classList.toggle('hidden');
+        document.querySelector('nav > div:last-child').classList.toggle('hidden');
+    }
+</script>
+</html>
