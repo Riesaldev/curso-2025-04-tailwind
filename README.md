@@ -412,3 +412,19 @@ Tamaños:
 * sm:text-red-500
 
 * sm:text-red-500 md:text-green-500
+
+## Proyecto final
+
+GitHub Pages
+
+Vercel y con algún framework Angular, React
+
+Heroku
+
+Azure Flexible databases for MySQL
+
+Render 
+
+Supabase
+
+OVH, Scaleway, DigitalOcean, AWS

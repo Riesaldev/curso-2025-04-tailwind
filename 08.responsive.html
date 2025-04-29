@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Responsive Tailwind CSS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script>
+        // Opcional: Configuración de Tailwind (si fuera necesaria para breakpoints personalizados)
+        // tailwind.config = {
+        //   theme: {
+        //     screens: {
+        //       'sm': '640px',
+        //       'md': '768px',
+        //       'lg': '1024px',
+        //       'xl': '1280px',
+        //       '2xl': '1536px',
+        //     }
+        //   }
+        // }
+    </script>
+    <style type="text/tailwindcss">
+        /* Estilos adicionales para mejorar la visualización de los ejemplos */
+        .demo-box {
+            @apply border border-dashed border-gray-400 rounded mb-4 flex items-center justify-center text-center font-semibold;
+        }
+        .screen-indicator {
+            @apply fixed bottom-4 right-4 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded shadow-lg z-50;
+        }
+        .section-title {
+            @apply text-2xl font-bold mt-8 mb-4 border-b pb-2;
+        }
+        .subsection-title {
+            @apply text-xl font-semibold mt-6 mb-3;
+        }
+        code {
+            @apply bg-gray-100 text-red-600 px-1 rounded text-sm;
+        }
+        .explanation {
+             @apply text-gray-700 mb-3;
+        }
+    </style>
+</head>
+<body class="p-8 bg-gray-50 font-sans">
+
+    <h1 class="text-4xl font-bold mb-6 text-center text-blue-600">Guía Completa de Responsive con Tailwind CSS</h1>
+
+    <div class="screen-indicator">
+        <span class="sm:hidden">XS (&lt;640px 40rem)</span>
+        <span class="hidden sm:inline md:hidden">SM (&ge;640px 40rem)</span>
+        <span class="hidden md:inline lg:hidden">MD (&ge;768px 48rem)</span>
+        <span class="hidden lg:inline xl:hidden">LG (&ge;1024px 64rem)</span>
+        <span class="hidden xl:inline 2xl:hidden">XL (&ge;1280px 80rem)</span>
+        <span class="hidden 2xl:inline">2XL (&ge;1536px 96rem)</span>
+    </div>
+
+    <section id="introduction">
+        <h2 class="section-title">Introducción al responsive en Tailwind</h2>
+        <p class="explanation">
+            El diseño responsive consiste en adaptar la apariencia de tu sitio web a diferentes tamaños de pantalla (móviles, tablets, ordenadores). Tailwind CSS facilita enormemente esto mediante el uso de <strong>prefijos responsive</strong> en sus clases de utilidad.
+        </p>
+        <p class="explanation">
+            Tailwind adopta un enfoque "mobile-first". Esto significa que las clases sin prefijo se aplican a todos los tamaños de pantalla (empezando por el más pequeño), y luego usas prefijos para añadir o modificar estilos en pantallas más grandes.
+        </p>
+    </section>
+
+    <section id="breakpoints">
+        <h2 class="section-title">Breakpoints por defecto</h2>
+        <p class="explanation">
+            Tailwind viene con un conjunto de breakpoints predefinidos que cubren los tamaños de dispositivo más comunes. Estos breakpoints definen el <strong>ancho mínimo (min-width)</strong> a partir del cual se aplican las clases con ese prefijo:
+        </p>
+        <ul class="list-disc list-inside bg-white p-4 rounded shadow mb-4">
+            <li><code>sm</code>: 640px</li>
+            <li><code>md</code>: 768px</li>
+            <li><code>lg</code>: 1024px</li>
+            <li><code>xl</code>: 1280px</li>
+            <li><code>2xl</code>: 1536px</li>
+        </ul>
+        <p class="explanation">
+            Puedes pensar en ellos como: "Aplica este estilo <strong>a partir</strong> del breakpoint <code>sm</code> (o <code>md</code>, <code>lg</code>, etc.) en adelante".
+        </p>
+    </section>
+
+    <section id="applying-modifiers">
+        <h2 class="section-title">Aplicando modificadores responsive</h2>
+        <p class="explanation">
+            Para aplicar una utilidad solo a partir de un cierto breakpoint, simplemente añade el nombre del breakpoint seguido de dos puntos (<code>:</code>) como prefijo a la clase de utilidad.
+        </p>
+        <p class="explanation">
+            La sintaxis es: <code>breakpoint:clase-utilidad</code>. Por ejemplo, <code>md:text-lg</code> aplicará la clase <code>text-lg</code> solo en pantallas de tamaño <code>md</code> (768px) o más grandes.
+        </p>
+
+        <h3 class="subsection-title">Ejemplo: cambiar tamaño de texto</h3>
+        <p class="explanation">
+            Este texto cambia de tamaño según el ancho de la pantalla. Empieza pequeño y se hace más grande en breakpoints mayores.
+        </p>
+        <div class="demo-box text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+            Texto con tamaño responsive (<code>text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl</code>)
+        </div>
+        <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto"><code>&lt;div class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"&gt;...&lt;/div&gt;</code></pre>
+
+        <h3 class="subsection-title">Ejemplo: cambiar color de fondo</h3>
+         <p class="explanation">
+            El fondo de esta caja cambia de color en diferentes breakpoints.
+        </p>
+        <div class="demo-box h-20 bg-red-300 sm:bg-yellow-300 md:bg-green-300 lg:bg-blue-300 xl:bg-purple-300 2xl:bg-pink-300">
+            Fondo responsive (<code>bg-red-300 sm:bg-yellow-300 md:bg-green-300 ...</code>)
+        </div>
+         <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto"><code>&lt;div class="bg-red-300 sm:bg-yellow-300 md:bg-green-300 lg:bg-blue-300 xl:bg-purple-300 2xl:bg-pink-300"&gt;...&lt;/div&gt;</code></pre>
+    </section>
+
+    <section id="common-use-cases">
+        <h2 class="section-title">Casos de uso comunes</h2>
+
+        <h3 class="subsection-title">1. Cambiar la dirección de flexbox</h3>
+        <p class="explanation">
+            Es muy común tener elementos apilados verticalmente en móviles (<code>flex-col</code>) y alineados horizontalmente en pantallas más grandes (<code>sm:flex-row</code>).
+        </p>
+        <div class="demo-box flex flex-col sm:flex-row bg-white shadow gap-4">
+            <div class="bg-cyan-200 p-4 rounded flex-1">Item 1</div>
+            <div class="bg-cyan-300 p-4 rounded flex-1">Item 2</div>
+            <div class="bg-cyan-400 p-4 rounded flex-1">Item 3</div>
+        </div>
+        <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto"><code>&lt;div class="flex flex-col sm:flex-row gap-4"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+  &lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3 class="subsection-title">2. Ajustar espaciado (padding/margin)</h3>
+        <p class="explanation">
+            Puedes necesitar más o menos espacio alrededor de los elementos según el tamaño de la pantalla.
+        </p>
+        <div class="bg-white shadow">
+            <div class="demo-box bg-orange-200 p-2 sm:p-4 md:p-6 lg:p-8">
+                Padding responsive (<code>p-2 sm:p-4 md:p-6 lg:p-8</code>)
+            </div>
+        </div>
+         <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto"><code>&lt;div class="p-2 sm:p-4 md:p-6 lg:p-8"&gt;...&lt;/div&gt;</code></pre>
+
+        <h3 class="subsection-title">3. Ocultar y mostrar elementos</h3>
+        <p class="explanation">
+            A veces, ciertos elementos solo deben ser visibles en determinados tamaños de pantalla. Usa <code>hidden</code> para ocultar por defecto y luego un prefijo con <code>block</code>, <code>flex</code>, <code>grid</code>, etc., para mostrarlo.
+        </p>
+        <div class="demo-box bg-white shadow space-y-2">
+            <div>Este texto es siempre visible.</div>
+            <div class="hidden sm:block text-green-600">Este texto aparece a partir de <code>sm</code> (<code>hidden sm:block</code>).</div>
+            <div class="hidden lg:block text-blue-600">Este texto aparece a partir de <code>lg</code> (<code>hidden lg:block</code>).</div>
+             <div class="block md:hidden text-red-600">Este texto se oculta a partir de <code>md</code> (<code>block md:hidden</code>).</div>
+        </div>
+        <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto"><code>&lt;div&gt;Siempre visible&lt;/div&gt;
+&lt;div class="hidden sm:block"&gt;Visible desde SM&lt;/div&gt;
+&lt;div class="hidden lg:block"&gt;Visible desde LG&lt;/div&gt;
+&lt;div class="block md:hidden"&gt;Oculto desde MD&lt;/div&gt;</code></pre>
+        <p class="explanation mt-2">
+            En el último ejemplo, <code>block md:hidden</code> significa: muéstralo por defecto (<code>block</code>, aunque no es estrictamente necesario si es un div) y ocúltalo (<code>hidden</code>) a partir del breakpoint <code>md</code>.
+        </p>
+
+
+        <h3 class="subsection-title">4. Modificar columnas de grid</h3>
+        <p class="explanation">
+            Es habitual usar una sola columna en móviles y aumentar el número de columnas en pantallas más grandes.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 bg-white shadow my-4">
+            <div class="bg-indigo-200 p-4 rounded">Col 1</div>
+            <div class="bg-indigo-300 p-4 rounded">Col 2</div>
+            <div class="bg-indigo-400 p-4 rounded">Col 3</div>
+            <div class="bg-indigo-500 p-4 rounded">Col 4</div>
+            <div class="bg-indigo-200 p-4 rounded">Col 5</div>
+            <div class="bg-indigo-300 p-4 rounded">Col 6</div>
+            <div class="bg-indigo-400 p-4 rounded">Col 7</div>
+            <div class="bg-indigo-500 p-4 rounded">Col 8</div>
+       </div>
+
+       <hr class="my-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-white shadow my-4">
+             <div class="bg-indigo-200 p-4 rounded">Col 1</div>
+             <div class="bg-indigo-300 p-4 rounded">Col 2</div>
+             <div class="bg-indigo-400 p-4 rounded">Col 3</div>
+             <div class="bg-indigo-500 p-4 rounded">Col 4</div>
+             <div class="bg-indigo-200 p-4 rounded hidden sm:block">Col 5</div>
+             <div class="bg-indigo-300 p-4 rounded hidden sm:block">Col 6</div>
+             <div class="bg-indigo-400 p-4 rounded hidden md:block">Col 7</div>
+             <div class="bg-indigo-500 p-4 rounded hidden md:block">Col 8</div>
+        </div>
+        <hr class="my-4">
+        <div class="grid grid-cols-4 gap-4 bg-white shadow my-4">
+            <div class="bg-indigo-200 p-4 rounded">Col 1</div>
+            <div class="bg-indigo-300 p-4 rounded">Col 2</div>
+            <div class="bg-indigo-400 p-4 rounded">Col 3</div>
+            <div class="bg-indigo-500 p-4 rounded">Col 4</div>
+            <div class="bg-indigo-200 p-4 rounded">Col 5</div>
+            <div class="bg-indigo-300 p-4 rounded">Col 6</div>
+            <div class="bg-indigo-400 p-4 rounded">Col 7</div>
+            <div class="bg-indigo-500 p-4 rounded">Col 8</div>
+       </div>
+        <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto"><code>&lt;div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"&gt;
+  &lt;div&gt;Col 1&lt;/div&gt;
+  &lt;div&gt;Col 2&lt;/div&gt;
+  &lt;!-- ... más columnas ... --&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+     <section id="max-width-modifiers">
+        <h2 class="section-title">Modificadores <code>max-*</code> (Hasta un breakpoint)</h2>
+        <p class="explanation">
+            Aunque Tailwind es "mobile-first" (los estilos sin prefijo se aplican a todo, y los prefijos <code>sm:</code>, <code>md:</code> etc., se aplican desde ese punto hacia arriba), a veces necesitas aplicar estilos solo <strong>hasta</strong> un cierto breakpoint. Para esto se usan los modificadores <code>max-*</code>.
+        </p>
+         <p class="explanation">
+            Por defecto, Tailwind incluye modificadores para cada breakpoint que aplican estilos <strong>por debajo</strong> de ese breakpoint. Por ejemplo, <code>max-md:</code> aplicará estilos solo en pantallas más pequeñas que el breakpoint <code>md</code> (es decir, en <code>xs</code> y <code>sm</code>).
+        </p>
+        <ul class="list-disc list-inside bg-white p-4 rounded shadow mb-4">
+            <li><code>max-sm</code>: Aplica estilos por debajo de 640px (solo en `xs`).</li>
+            <li><code>max-md</code>: Aplica estilos por debajo de 768px (en `xs`, `sm`).</li>
+            <li><code>max-lg</code>: Aplica estilos por debajo de 1024px (en `xs`, `sm`, `md`).</li>
+            <li><code>max-xl</code>: Aplica estilos por debajo de 1280px (en `xs`, `sm`, `md`, `lg`).</li>
+            <li><code>max-2xl</code>: Aplica estilos por debajo de 1536px (en `xs`, `sm`, `md`, `lg`, `xl`).</li>
+        </ul>
+
+        <h3 class="subsection-title">Ejemplo: Estilos solo en móvil/tablet pequeña</h3>
+        <p class="explanation">
+            Este texto solo será grande y rojo en pantallas por debajo del breakpoint <code>lg</code> (es decir, <code>xs</code>, <code>sm</code>, <code>md</code>). En pantallas <code>lg</code> y superiores, volverá al estilo base (o a otros estilos definidos para esos breakpoints).
+        </p>
+        <div class="demo-box max-lg:text-base max-lg:text-green-600 lg:text-xl lg:text-blue-600">
+            Texto con estilo max-lg (max-lg:text-base max-lg:text-green-600 lg:text-xl lg:text-blue-600)
+        </div>
+         <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto"><code>&lt;div class="max-lg:text-xl max-lg:text-red-600 lg:text-base lg:text-black"&gt;...&lt;/div&gt;</code></pre>
+         <p class="explanation mt-2">
+            <strong>Importante:</strong> Cuando usas <code>max-*</code>, a menudo necesitarás "resetear" el estilo en el breakpoint donde deja de aplicarse. En el ejemplo anterior, usamos <code>lg:text-base lg:text-black</code> para asegurarnos de que el texto vuelve a la normalidad a partir de <code>lg</code>. Sin esto, podría heredar el estilo de <code>max-lg</code> si no hay otra regla que lo sobreescriba.
+        </p>
+    </section>
+
+    <section id="combining-modifiers">
+        <h2 class="section-title">Combinando modificadores</h2>
+        <p class="explanation">
+            Puedes (y a menudo lo harás) combinar múltiples modificadores responsive en un solo elemento para crear diseños complejos que se adapten perfectamente a cada tamaño de pantalla.
+        </p>
+        <div class="demo-box bg-gray-200 p-2 text-xs
+                    sm:bg-lime-200 sm:p-3 sm:text-sm
+                    md:bg-emerald-200 md:p-4 md:text-base
+                    lg:bg-teal-200 lg:p-5 lg:text-lg
+                    xl:bg-cyan-200 xl:p-6 xl:text-xl">
+            Combinación: Padding, Fondo y Tamaño de Texto (<code>p-2 text-xs sm:p-3 sm:text-sm md:p-4 md:text-base...</code>)
+        </div>
+        <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto"><code>&lt;div class="bg-gray-200 p-2 text-xs
+            sm:bg-lime-200 sm:p-3 sm:text-sm
+            md:bg-emerald-200 md:p-4 md:text-base
+            lg:bg-teal-200 lg:p-5 lg:text-lg
+            xl:bg-cyan-200 xl:p-6 xl:text-xl"&gt;
+    Combinación...
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section id="customization">
+        <h2 class="section-title">Personalización (avanzado)</h2>
+        <p class="explanation">
+            Si los breakpoints por defecto no se ajustan a tus necesidades, puedes personalizarlos, añadir nuevos o eliminar existentes modificando el archivo de configuración de Tailwind (<code>tailwind.config.js</code>) en la sección <code>theme.screens</code>. Sin embargo, para la mayoría de los proyectos, los breakpoints por defecto son suficientes.
+        </p>
+        <pre class="bg-gray-800 text-white p-3 rounded text-sm overflow-x-auto"><code>// tailwind.config.js (Ejemplo conceptual)
+module.exports = {
+  theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+      // Puedes añadir breakpoints personalizados
+      'tablet': '900px',
+      // O sobreescribir los existentes
+      // 'lg': '1100px',
+    },
+    extend: {
+      // ... otras extensiones
+    }
+  },
+  plugins: [],
+}
+</code></pre>
+        <p class="explanation mt-2">
+            Para usar un archivo de configuración, necesitarías instalar Tailwind CSS en tu proyecto usando npm o yarn y compilar tus estilos, en lugar de usar el CDN de Play. El CDN de Play es ideal para prototipos rápidos y demostraciones como esta guía.
+        </p>
+    </section>
+
+
+</body>
+</html>
