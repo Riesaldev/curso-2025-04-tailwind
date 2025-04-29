@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CSS 4.1 in the browser -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Guía rápida de Grid con Tailwind CSS 4.1</title>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased leading-relaxed">
+    <!-- <header class="bg-white shadow sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+            <h1 class="text-2xl md:text-3xl font-extrabold text-violet-600">Grid con Tailwind&nbsp;CSS 4.1 — Guía Completa</h1>
+            <nav class="text-sm md:text-base font-medium text-gray-600 flex flex-wrap gap-x-4 gap-y-2">
+                <a href="#grid" class="hover:text-violet-600">1. grid</a>
+                <a href="#template-cols" class="hover:text-violet-600">2. cols</a>
+                <a href="#template-rows" class="hover:text-violet-600">3. rows</a>
+                <a href="#auto-flow" class="hover:text-violet-600">4. flow</a>
+                <a href="#auto" class="hover:text-violet-600">5. auto</a>
+                <a href="#span" class="hover:text-violet-600">6. span</a>
+                <a href="#gap" class="hover:text-violet-600">7. gap</a>
+                <a href="#justify" class="hover:text-violet-600">8. justify-*</a>
+                <a href="#align" class="hover:text-violet-600">9. align-*</a>
+                <a href="#place" class="hover:text-violet-600">10. place-*</a>
+                <a href="#subgrid" class="hover:text-violet-600">11. subgrid</a>
+                <a href="#arbitrary" class="hover:text-violet-600">12. arbitrary</a>
+                <a href="#order" class="hover:text-violet-600">13. order</a>
+                <a href="#responsive" class="hover:text-violet-600">14. responsive</a>
+            </nav>
+        </div>
+    </header> -->
+
+    <main class="max-w-6xl mx-auto px-6 py-10 space-y-16">
+        <!-- Intro -->
+        <section>
+            <h2 class="text-3xl font-bold mb-4">¿Qué es CSS&nbsp;Grid?</h2>
+            <p class="mb-4">Grid es un sistema de <em>layout</em> bidimensional: te deja colocar elementos en filas <strong>y</strong> columnas, con
+                control total de cada celda. Tailwind 4.1 traduce cada propiedad de Grid a una clase utilitaria.
+                Esta guía resume todas las utilidades de Grid en Tailwind, con ejemplos listos para copiar.</p>
+        </section>
+
+        <!-- grid / inline-grid -->
+        <section id="grid" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">1. Activar Grid — <code class="font-mono text-base">grid</code> / <code class="font-mono text-base">inline-grid</code></h2>
+            <p class="mb-4">Las clases que convierten un contenedor en Grid:</p>
+            <ul class="list-disc list-inside space-y-1 mb-6">
+                <li><code class="font-mono">grid</code> → <code class="font-mono">display: grid;</code></li>
+                <li><code class="font-mono">inline-grid</code> → <code class="font-mono">display: inline-grid;</code></li>
+            </ul>
+
+                          <!-- Por defecto, sin columnas definidas, los ítems se apilan uno encima del otro -->
+            <div class="grid border border-gray-300 my-6">
+                <div class="bg-sky-200 p-4">Item 1</div>
+                <div class="bg-indigo-200 p-4">Item 2</div>
+                <div class="bg-pink-200 p-4">Item 3</div>
+              </div>
+
+                            <!-- Ahora los ítems se distribuyen en 3 columnas -->
+              <div class="grid grid-cols-3 border border-gray-300 my-6">
+                <div class="bg-sky-200 p-4">Item 1</div>
+                <div class="bg-indigo-200 p-4">Item 2</div>
+                <div class="bg-pink-200 p-4">Item 3</div>
+                <div class="bg-green-200 p-4">Item 4</div> <!-- Este irá a la siguiente fila -->
+                <div class="bg-yellow-200 p-4">Item 5</div>
+              </div>
+
+
+              <!-- Ahora hay un espacio de '1rem' entre todos los ítems -->
+              <div class="grid grid-cols-3 gap-4 border border-gray-300 my-6">
+                <div class="bg-sky-200 p-4">Item 1</div>
+                <div class="bg-indigo-200 p-4">Item 2</div>
+                <div class="bg-pink-200 p-4">Item 3</div>
+                <div class="bg-green-200 p-4">Item 4</div>
+                <div class="bg-yellow-200 p-4">Item 5</div>
+              </div>
+
+
+            <div class="bg-slate-100 rounded-xl p-4 mb-6">
+                <p class="text-sm mb-2 font-medium">Ejemplo:</p>
+                <div class="grid grid-cols-3 gap-2 p-2 bg-white rounded-lg shadow">
+                    <div class="bg-violet-500 h-16 rounded"></div>
+                    <div class="bg-violet-500 h-16 rounded"></div>
+                    <div class="bg-violet-500 h-16 rounded"></div>
+                </div>
+            </div>
+            <pre class="overflow-x-auto bg-gray-900 text-gray-100 text-sm rounded p-4"><code>&lt;div class="grid grid-cols-3 gap-2"&gt; ... &lt;/div&gt;</code></pre>
+        </section>
+
+        <!-- grid-template-columns -->
+        <section id="template-cols" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">2. Columnas — <code class="font-mono">grid-template-columns</code></h2>
+            <p class="mb-4">Define cuántas columnas y su tamaño. Tailwind provee:</p>
+            <ul class="list-disc list-inside space-y-1 mb-4">
+                <li><code class="font-mono">grid-cols-n</code>: <code class="font-mono">n</code> columnas iguales (1–12).</li>
+                <li><code class="font-mono">grid-cols-none</code>: sin track explícito.</li>
+                <li>Fracciones arbitrarias: <code class="font-mono">[grid-cols-[1fr_2fr_1fr]]</code>.</li>
+            </ul>
+            <div class="grid grid-cols-4 gap-2 bg-slate-100 p-4 rounded">
+                <div class="h-16 bg-violet-500/80 rounded"></div><div class="h-16 bg-violet-500/80 rounded"></div><div class="h-16 bg-violet-500/80 rounded"></div><div class="h-16 bg-violet-500/80 rounded"></div>
+            </div>
+        </section>
+
+        <!-- grid-template-rows -->
+        <section id="template-rows" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">3. Filas — <code class="font-mono">grid-template-rows</code></h2>
+            <p class="mb-4">Misma lógica que las columnas:</p>
+            <ul class="list-disc list-inside space-y-1 mb-4">
+                <li><code class="font-mono">grid-rows-n</code> / <code class="font-mono">grid-rows-none</code></li>
+            </ul>
+            <div class="grid grid-rows-3 grid-flow-col gap-2 bg-slate-100 p-4 rounded h-64 w-48">
+                <div class="bg-violet-500/80 rounded"></div><div class="bg-violet-500/80 rounded"></div><div class="bg-violet-500/80 rounded"></div>
+            </div>
+        </section>
+
+        <p class="mb-4 font-semibold text-lg">Hacer que un item ocupe varias columnas y filas col-span-n</p>
+        <!-- El Item 1 ocupa las 2 primeras columnas de la fila 1. El Item 5 ocupa las 4 columnas de la fila 2. -->
+
+        <div class="grid grid-cols-4 gap-4 border border-gray-300">
+            <div class="bg-sky-200 p-4 col-span-2">Item 1 (ocupa 2 columnas)</div>
+            <div class="bg-indigo-200 p-4">Item 2</div>
+            <div class="bg-pink-200 p-4">Item 3</div>
+            <div class="bg-green-200 p-4">Item 4</div>
+            <div class="bg-yellow-200 p-4 col-span-full">Item 5 (ocupa todas las columnas)</div>
+          </div>
+
+          <p class="mb-4 font-semibold text-lg">Especificar la columna de inicio col-start-n</p>
+          <!-- El Item 2 empieza en la tercera línea de columna y ocupa 2 columnas. El Item 4 empieza en la quinta línea. -->
+
+          <div class="grid grid-cols-6 gap-4 border border-gray-300">
+            <div class="bg-sky-200 p-4">Item 1</div>
+            <div class="bg-indigo-200 p-4 col-start-3 col-span-2">Item 2 (empieza en col 3, ocupa 2)</div>
+            <div class="bg-pink-200 p-4 col-start-1 col-span-full">Item 3 (empieza en col 1, ocupa todas)</div>
+            <div class="bg-green-200 p-4 col-start-5">Item 4 (empieza en col 5)</div>
+          </div>
+
+
+          <p class="mb-4 font-semibold text-lg">Especificar la columna de fin col-end-n</p>
+
+          <!-- Item 1 ocupa desde la línea 2 hasta la línea 5 (3 columnas). Item 3 ocupa desde la línea 4 hasta la línea 7 (3 columnas). -->
+
+          <div class="grid grid-cols-6 gap-4 border border-gray-300">
+            <div class="bg-sky-200 p-4 col-start-2 col-end-5">Item 1 (va de col 2 a 5)</div>
+            <div class="bg-indigo-200 p-4 col-end-3">Item 2 (acaba antes de col 3)</div>
+            <div class="bg-pink-200 p-4 col-start-4 col-end-7">Item 3 (va de col 4 a 7)</div>
+          </div>
+           
+
+
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+            <!-- Imagen destacada (ocupa 2 columnas y 2 filas) -->
+            <div class="md:col-span-2 md:row-span-2 bg-gray-100 rounded-lg overflow-hidden">
+              <img src="https://placehold.co/400x250" class="w-full h-full object-cover">
+            </div>
+            
+            <!-- Imágenes más pequeñas -->
+            <div class="bg-gray-100 rounded-lg overflow-hidden">
+              <img src="https://placehold.co/400x250" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="bg-gray-100 rounded-lg overflow-hidden">
+              <img src="https://placehold.co/400x250" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="bg-gray-100 rounded-lg overflow-hidden">
+              <img src="https://placehold.co/400x250" class="w-full h-full object-cover">
+            </div>
+
+            <div class="bg-gray-100 rounded-lg overflow-hidden">
+                <img src="https://placehold.co/400x250" class="w-full h-full object-cover">
+              </div>
+
+              <div class="bg-gray-100 rounded-lg overflow-hidden">
+                <img src="https://placehold.co/400x250" class="w-full h-full object-cover">
+              </div>
+          </div>
+
+
+          <div class="grid grid-cols-12 gap-4 p-4">
+            <!-- Header (ancho completo) -->
+            <div class="col-span-12 bg-blue-100 p-4 rounded-lg">Header</div>
+            
+            <!-- Sidebar (1/4 del ancho) -->
+            <div class="col-span-12 md:col-span-3 bg-blue-200 p-4 rounded-lg">Sidebar</div>
+            
+            <!-- Contenido principal (3/4 del ancho) -->
+            <div class="col-span-12 md:col-span-9 bg-blue-300 p-4 rounded-lg">
+              Contenido principal
+            </div>
+            
+            <!-- Footer (ancho completo) -->
+            <div class="col-span-12 bg-blue-100 p-4 rounded-lg">Footer</div>
+          </div>
+
+
+        <!-- grid-auto-flow -->
+        <section id="auto-flow" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">4. Flujo automático — <code class="font-mono">grid-auto-flow</code></h2>
+            <p class="mb-4">Controla cómo se colocan los ítems sin posición explicita:</p>
+            <ul class="list-disc list-inside space-y-1 mb-6">
+                <li><code class="font-mono">grid-flow-row</code> (default)</li>
+                <li><code class="font-mono">grid-flow-col</code></li>
+                <li><code class="font-mono">grid-flow-dense</code></li>
+                <li><code class="font-mono">grid-flow-row-dense</code> / <code class="font-mono">grid-flow-col-dense</code></li>
+            </ul>
+            <div class="grid grid-flow-col auto-cols-max gap-2 bg-slate-100 p-4 rounded">
+                <div class="w-24 h-16 bg-violet-500/80 rounded"></div><div class="w-12 h-16 bg-violet-500/80 rounded"></div><div class="w-16 h-16 bg-violet-500/80 rounded"></div><div class="w-24 h-16 bg-violet-500/80 rounded"></div>
+            </div>
+        </section>
+
+        <!-- grid-auto-columns / grid-auto-rows -->
+        <section id="auto" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">5. Tamaños automáticos — <code class="font-mono">grid-auto-cols</code> / <code class="font-mono">grid-auto-rows</code></h2>
+            <p class="mb-4">El tamaño asignado a tracks creados automáticamente:</p>
+            <ul class="list-disc list-inside space-y-1 mb-6">
+                <li><code class="font-mono">auto-cols-{size}</code></li>
+                <li><code class="font-mono">auto-rows-{size}</code></li>
+            </ul>
+            <div class="grid grid-flow-col auto-cols-fr gap-2 bg-slate-100 p-4 rounded">
+                <div class="h-16 bg-violet-500/80 rounded"></div><div class="h-16 bg-violet-500/80 rounded"></div><div class="h-16 bg-violet-500/80 rounded"></div>
+            </div>
+        </section>
+
+        <!-- grid-column / grid-row (span / start / end) -->
+        <section id="span" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">6. Posicionamiento — <code class="font-mono">grid-column</code> / <code class="font-mono">grid-row</code></h2>
+            <p class="mb-4">Span, start y end:</p>
+            <ul class="list-disc list-inside space-y-1 mb-6">
+                <li><code class="font-mono">col-span-n</code> / <code class="font-mono">row-span-n</code></li>
+                <li><code class="font-mono">col-start-n</code> / <code class="font-mono">row-start-n</code></li>
+                <li><code class="font-mono">col-end-n</code> / <code class="font-mono">row-end-n</code></li>
+            </ul>
+            <div class="grid grid-cols-4 grid-rows-2 gap-2 bg-slate-100 p-4 rounded">
+                <div class="col-span-2 row-span-2 bg-violet-500/80 rounded"></div>
+                <div class="bg-violet-500/80 rounded"></div>
+                <div class="bg-violet-500/80 rounded"></div>
+                <div class="col-start-4 row-start-1 row-end-3 bg-violet-500/80 rounded"></div>
+            </div>
+        </section>
+
+        <!-- gap -->
+        <section id="gap" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">7. Separación — <code class="font-mono">gap</code></h2>
+            <p class="mb-4">Espacio entre tracks (filas y/o columnas):</p>
+            <ul class="list-disc list-inside space-y-1 mb-6">
+                <li><code class="font-mono">gap-n</code></li>
+                <li><code class="font-mono">gap-x-n</code> / <code class="font-mono">gap-y-n</code></li>
+            </ul>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-4 bg-slate-100 p-4 rounded">
+                <div class="h-16 bg-violet-500/80 rounded"></div>
+                <div class="h-16 bg-violet-500/80 rounded"></div>
+                <div class="h-16 bg-violet-500/80 rounded"></div>
+                <div class="h-16 bg-violet-500/80 rounded"></div>
+                <div class="h-16 bg-violet-500/80 rounded"></div>
+                <div class="h-16 bg-violet-500/80 rounded"></div>
+            </div>
+        </section>
+
+        <!-- justify-*, align-*, place-* -->
+        <section id="justify" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">8. Distribución horizontal — <code class="font-mono">justify-*</code></h2>
+            <p class="mb-4">Controla cómo se alinean los ítems <strong class="font-medium">dentro de su celda</strong> en el eje horizontal (<code class="font-mono">justify-items</code>) y cómo se distribuye el espacio <strong class="font-medium">entre y alrededor de las columnas</strong> del grid (<code class="font-mono">justify-content</code>).</p>
+            
+            <h3 class="text-lg font-medium mt-6 mb-2"><code class="font-mono">justify-items-*</code> (Alineación de ítems individuales en su celda)</h3>
+            <ul class="list-disc list-inside space-y-1 mb-4">
+                <li><code class="font-mono">justify-items-start</code></li>
+                <li><code class="font-mono">justify-items-end</code></li>
+                <li><code class="font-mono">justify-items-center</code> (Ejemplo abajo)</li>
+                <li><code class="font-mono">justify-items-stretch</code> (Default)</li>
+            </ul>
+            <div class="space-y-6 mb-6">
+                <div>
+                    <p class="font-medium mb-1"><code class="font-mono">justify-items-center</code></p>
+                    <div class="grid grid-cols-3 justify-items-center gap-2 bg-slate-100 p-4 rounded h-24">
+                        <div class="h-12 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-12 w-16 bg-violet-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-12 w-8 bg-violet-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                    </div>
+                </div>
+                <!-- Añadir más ejemplos si es necesario -->
+            </div>
+
+            <h3 class="text-lg font-medium mt-6 mb-2"><code class="font-mono">justify-content-*</code> (Distribución de las columnas en el contenedor)</h3>
+             <ul class="list-disc list-inside space-y-1 mb-4">
+                <li><code class="font-mono">justify-start</code></li>
+                <li><code class="font-mono">justify-end</code></li>
+                <li><code class="font-mono">justify-center</code></li>
+                <li><code class="font-mono">justify-between</code> (Ejemplo abajo)</li>
+                <li><code class="font-mono">justify-around</code></li>
+                <li><code class="font-mono">justify-evenly</code></li>
+                <li><code class="font-mono">justify-stretch</code></li>
+            </ul>
+            <div class="space-y-6">
+                <div>
+                    <p class="font-medium mb-1"><code class="font-mono">justify-between</code></p>
+                    <div class="grid grid-cols-3 justify-between gap-2 bg-slate-100 p-4 rounded h-24">
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                    </div>
+                </div>
+                 <div>
+                    <p class="font-medium mb-1 mt-4"><code class="font-mono">justify-around</code></p>
+                    <div class="grid grid-cols-3 justify-around gap-2 bg-slate-100 p-4 rounded h-24">
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                    </div>
+                </div>
+                 <div>
+                    <p class="font-medium mb-1 mt-4"><code class="font-mono">justify-evenly</code></p>
+                    <div class="grid grid-cols-3 justify-evenly gap-2 bg-slate-100 p-4 rounded h-24">
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="align" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">9. Alineación vertical — <code class="font-mono">align-*</code></h2>
+            <p class="mb-4">Similar a <code class="font-mono">justify-*</code>, pero en el eje vertical. Controla la alineación de ítems <strong class="font-medium">dentro de su celda</strong> (<code class="font-mono">align-items</code>) y la distribución del espacio <strong class="font-medium">entre y alrededor de las filas</strong> (<code class="font-mono">align-content</code>).</p>
+
+            <h3 class="text-lg font-medium mt-6 mb-2"><code class="font-mono">align-items-*</code> (Alineación de ítems individuales en su celda)</h3>
+            <ul class="list-disc list-inside space-y-1 mb-4">
+                <li><code class="font-mono">items-start</code></li>
+                <li><code class="font-mono">items-end</code> (Ejemplo abajo)</li>
+                <li><code class="font-mono">items-center</code></li>
+                <li><code class="font-mono">items-stretch</code> (Default)</li>
+                <li><code class="font-mono">items-baseline</code></li>
+            </ul>
+            <div class="space-y-6 mb-6">
+                <div>
+                    <p class="font-medium mb-1"><code class="font-mono">items-end</code></p>
+                    <div class="grid grid-cols-3 items-end gap-2 h-40 bg-slate-100 p-4 rounded">
+                        <div class="h-12 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-24 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-16 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                    </div>
+                </div>
+                 <div>
+                    <p class="font-medium mb-1 mt-4"><code class="font-mono">items-center</code></p>
+                    <div class="grid grid-cols-3 items-center gap-2 h-40 bg-slate-100 p-4 rounded">
+                        <div class="h-12 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-24 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-16 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-medium mt-6 mb-2"><code class="font-mono">align-content-*</code> (Distribución de las filas en el contenedor)</h3>
+            <ul class="list-disc list-inside space-y-1 mb-4">
+                <li><code class="font-mono">content-start</code></li>
+                <li><code class="font-mono">content-end</code></li>
+                <li><code class="font-mono">content-center</code> (Ejemplo abajo)</li>
+                <li><code class="font-mono">content-between</code></li>
+                <li><code class="font-mono">content-around</code></li>
+                <li><code class="font-mono">content-evenly</code></li>
+                <li><code class="font-mono">content-stretch</code></li>
+            </ul>
+             <div class="space-y-6">
+                <div>
+                    <p class="font-medium mb-1"><code class="font-mono">content-center</code> (Necesita altura definida y más de una fila)</p>
+                    <div class="grid grid-cols-2 grid-rows-2 content-center gap-2 h-48 bg-slate-100 p-4 rounded">
+                        <div class="h-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                        <div class="h-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">4</div>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-medium mb-1 mt-4"><code class="font-mono">content-between</code></p>
+                    <div class="grid grid-cols-2 grid-rows-2 content-between gap-2 h-48 bg-slate-100 p-4 rounded">
+                        <div class="h-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                        <div class="h-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">4</div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="place" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">10. Atajos de alineación/distribución — <code class="font-mono">place-*</code></h2>
+            <p class="mb-4">Combinan <code class="font-mono">align-*</code> y <code class="font-mono">justify-*</code>:</p>
+            <ul class="list-disc list-inside space-y-1 mb-6">
+                <li><code class="font-mono">place-content-*</code>: Combina <code class="font-mono">align-content</code> y <code class="font-mono">justify-content</code>.</li>
+                <li><code class="font-mono">place-items-*</code>: Combina <code class="font-mono">align-items</code> y <code class="font-mono">justify-items</code>.</li>
+                <li><code class="font-mono">place-self-*</code>: Combina <code class="font-mono">align-self</code> y <code class="font-mono">justify-self</code> (para ítems individuales).</li>
+            </ul>
+
+            <h3 class="text-lg font-medium mt-6 mb-2"><code class="font-mono">place-content-*</code></h3>
+            <div class="space-y-6 mb-6">
+                <div>
+                    <p class="font-medium mb-1"><code class="font-mono">place-content-center</code> (Centra el contenido del grid en ambos ejes)</p>
+                    <div class="grid grid-cols-2 grid-rows-2 place-content-center gap-2 h-56 bg-slate-100 p-4 rounded">
+                        <div class="h-12 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-12 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-12 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                         <div class="h-12 w-12 bg-violet-500 rounded flex items-center justify-center text-white font-bold">4</div>
+                    </div>
+                </div>
+                <!-- Añadir más ejemplos de place-content si es necesario -->
+             </div>
+
+
+            <h3 class="text-lg font-medium mt-6 mb-2"><code class="font-mono">place-items-*</code></h3>
+             <div class="space-y-6 mb-6">
+                <div>
+                    <p class="font-medium mb-1"><code class="font-mono">place-items-center</code> (Centra cada ítem dentro de su celda)</p>
+                    <div class="grid grid-cols-3 grid-rows-2 place-items-center gap-2 h-48 bg-slate-100 p-4 rounded">
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-16 w-16 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">2</div>
+                        <div class="h-10 w-20 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                        <div class="h-20 w-10 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">4</div>
+                        <div class="h-12 w-12 bg-cyan-500 rounded flex items-center justify-center text-white font-bold">5</div>
+                    </div>
+                </div>
+                <!-- Añadir más ejemplos de place-items si es necesario -->
+             </div>
+
+            <h3 class="text-lg font-medium mt-6 mb-2"><code class="font-mono">place-self-*</code></h3>
+            <p class="mb-4">Sobreescribe <code class="font-mono">place-items</code> para un ítem específico.</p>
+             <div class="space-y-6">
+                <div>
+                    <p class="font-medium mb-1">Ejemplo con <code class="font-mono">place-self-end</code></p>
+                    <div class="grid grid-cols-3 place-items-center gap-2 h-48 bg-slate-100 p-4 rounded">
+                        <div class="h-12 w-12 bg-fuchsia-500 rounded flex items-center justify-center text-white font-bold">1</div>
+                        <div class="h-16 w-16 bg-fuchsia-500 rounded place-self-end flex items-center justify-center text-white font-bold">2 (end)</div>
+                        <div class="h-12 w-12 bg-fuchsia-500 rounded flex items-center justify-center text-white font-bold">3</div>
+                        <div class="h-12 w-12 bg-fuchsia-500 rounded place-self-start flex items-center justify-center text-white font-bold">4 (start)</div>
+                         <div class="h-16 w-16 bg-fuchsia-500 rounded place-self-stretch flex items-center justify-center text-white font-bold">5 (stretch)</div>
+                         <div class="h-12 w-12 bg-fuchsia-500 rounded flex items-center justify-center text-white font-bold">6</div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- Subgrid -->
+        <section id="subgrid" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">11. Subgrid — <code class="font-mono">grid-cols-subgrid</code> / <code class="font-mono">grid-rows-subgrid</code></h2>
+            <p class="mb-4">Permite que un grid anidado (<em class="font-semibold">hijo</em>) adopte las definiciones de track (columnas o filas) de su grid padre. Esto es útil para alinear ítems a través de grids anidados.</p>
+            <ul class="list-disc list-inside space-y-1 mb-6">
+                <li><code class="font-mono">grid-cols-subgrid</code>: El grid hijo usa las tracks de columna del padre en las que está posicionado.</li>
+                <li><code class="font-mono">grid-rows-subgrid</code>: El grid hijo usa las tracks de fila del padre en las que está posicionado.</li>
+            </ul>
+             <p class="mb-4 font-medium">Ejemplo:</p>
+            <div class="grid grid-cols-4 gap-4 bg-slate-100 p-4 rounded mb-6">
+                <div class="bg-emerald-200 p-2 rounded col-span-2">Ítem Padre 1 (ocupa 2 cols)</div>
+                <div class="bg-emerald-200 p-2 rounded">Ítem Padre 2</div>
+                <div class="bg-emerald-200 p-2 rounded">Ítem Padre 3</div>
+                <!-- Grid anidado con subgrid -->
+                <div class="col-span-4 grid grid-cols-subgrid gap-4 bg-white p-4 rounded shadow">
+                    <div class="bg-rose-400 p-2 rounded col-span-1">Sub-ítem A (alineado con col 1 padre)</div>
+                    <div class="bg-rose-400 p-2 rounded col-span-2">Sub-ítem B (alineado con cols 2-3 padre)</div>
+                    <div class="bg-rose-400 p-2 rounded col-start-4">Sub-ítem C (alineado con col 4 padre)</div>
+                </div>
+            </div>
+             <pre class="overflow-x-auto bg-gray-900 text-gray-100 text-sm rounded p-4"><code>&lt;div class="grid grid-cols-4 gap-4"&gt;
+  &lt;!-- ... ítems padre ... --&gt;
+  &lt;div class="col-span-4 grid grid-cols-subgrid gap-4"&gt;
+    &lt;!-- Los ítems aquí se alinean con las 4 columnas del grid padre --&gt;
+    &lt;div class="col-span-1"&gt;A&lt;/div&gt;
+    &lt;div class="col-span-2"&gt;B&lt;/div&gt;
+    &lt;div class="col-start-4"&gt;C&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <!-- Arbitrary Values -->
+        <section id="arbitrary" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">12. Valores Arbitrarios y Funciones Avanzadas</h2>
+            <p class="mb-4">Para definiciones de grid más complejas que las utilidades estándar, puedes usar la notación de corchetes <code class="font-mono">[...]</code>. Esto te permite usar cualquier valor CSS válido, incluyendo funciones como <code class="font-mono">minmax()</code>, <code class="font-mono">repeat()</code>, <code class="font-mono">fit-content()</code>, o definir áreas de grid nombradas.</p>
+            
+            <h3 class="text-lg font-medium mt-6 mb-2">Funciones <code class="font-mono">minmax()</code> y <code class="font-mono">repeat()</code></h3>
+            <p class="mb-4">Define tamaños flexibles y patrones repetitivos.</p>
+             <ul class="list-disc list-inside space-y-1 mb-6">
+                <li><code class="font-mono">[grid-cols-[repeat(auto-fit,minmax(150px,1fr))]]</code>: Columnas que se ajustan automáticamente, cada una con un mínimo de 150px y un máximo de 1fr.</li>
+                <li><code class="font-mono">[grid-rows-[auto_1fr_auto]]</code>: Una fila superior e inferior de tamaño automático, y una central que ocupa el espacio restante.</li>
+            </ul>
+            <div class="bg-slate-100 rounded-xl p-4 mb-6">
+                <p class="text-sm mb-2 font-medium">Ejemplo con <code class="font-mono">repeat(auto-fit, minmax(100px, 1fr))</code>:</p>
+                <div class="grid [grid-cols-[repeat(auto-fit,minmax(100px,1fr))]] gap-4 p-2 bg-white rounded-lg shadow">
+                    <div class="bg-indigo-500 h-16 rounded"></div>
+                    <div class="bg-indigo-500 h-16 rounded"></div>
+                    <div class="bg-indigo-500 h-16 rounded"></div>
+                    <div class="bg-indigo-500 h-16 rounded"></div>
+                    <div class="bg-indigo-500 h-16 rounded"></div>
+                </div>
+            </div>
+            <pre class="overflow-x-auto bg-gray-900 text-gray-100 text-sm rounded p-4 mb-6"><code>&lt;div class="grid [grid-cols-[repeat(auto-fit,minmax(100px,1fr))]] gap-4"&gt;
+  &lt;!-- ... ítems ... --&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3 class="text-lg font-medium mt-6 mb-2">Áreas de Grid Nombradas (<code class="font-mono">grid-template-areas</code>)</h3>
+            <p class="mb-4">Puedes definir un layout complejo nombrando áreas y asignando ítems a esas áreas usando valores arbitrarios.</p>
+            <div class="bg-slate-100 rounded-xl p-4 mb-6">
+                <p class="text-sm mb-2 font-medium">Ejemplo:</p>
+                <div class="grid [grid-template-areas:'header_header'_'sidebar_main'_'footer_footer'] [grid-template-columns:150px_1fr] [grid-template-rows:auto_1fr_auto] gap-4 h-64 bg-white rounded-lg shadow p-4">
+                    <div class="[grid-area:header] bg-amber-300 rounded p-2">Header</div>
+                    <div class="[grid-area:sidebar] bg-lime-300 rounded p-2">Sidebar</div>
+                    <div class="[grid-area:main] bg-sky-300 rounded p-2">Main</div>
+                    <div class="[grid-area:footer] bg-orange-300 rounded p-2">Footer</div>
+                </div>
+            </div>
+            <pre class="overflow-x-auto bg-gray-900 text-gray-100 text-sm rounded p-4"><code>&lt;div class="grid [grid-template-areas:'header_header'_'sidebar_main'_'footer_footer'] 
+             [grid-template-columns:150px_1fr] 
+             [grid-template-rows:auto_1fr_auto] 
+             gap-4 h-64"&gt;
+  &lt;div class="[grid-area:header]"&gt;Header&lt;/div&gt;
+  &lt;div class="[grid-area:sidebar]"&gt;Sidebar&lt;/div&gt;
+  &lt;div class="[grid-area:main]"&gt;Main&lt;/div&gt;
+  &lt;div class="[grid-area:footer]"&gt;Footer&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <!-- Order -->
+        <section id="order" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">13. Orden de los Ítems — <code class="font-mono">order-*</code></h2>
+            <p class="mb-4">Aunque Grid define un orden bidimensional, puedes cambiar el orden visual de los ítems (su orden de pintado y tabulación) independientemente de su posición en el DOM, usando las utilidades <code class="font-mono">order-*</code>. Por defecto, todos los ítems tienen <code class="font-mono">order-0</code>.</p>
+            <ul class="list-disc list-inside space-y-1 mb-6">
+                <li><code class="font-mono">order-n</code> (donde n es 1-12)</li>
+                <li><code class="font-mono">order-first</code> (<code class="font-mono">order: -9999;</code>)</li>
+                <li><code class="font-mono">order-last</code> (<code class="font-mono">order: 9999;</code>)</li>
+                <li><code class="font-mono">order-none</code> (<code class="font-mono">order: 0;</code>)</li>
+            </ul>
+             <div class="grid grid-cols-3 gap-4 bg-slate-100 p-4 rounded mb-6">
+                <div class="bg-teal-400 p-2 rounded order-last">1. DOM (order-last)</div>
+                <div class="bg-teal-400 p-2 rounded">2. DOM (order-0)</div>
+                <div class="bg-teal-400 p-2 rounded order-first">3. DOM (order-first)</div>
+                <div class="bg-teal-400 p-2 rounded order-2">4. DOM (order-2)</div>
+                <div class="bg-teal-400 p-2 rounded order-1">5. DOM (order-1)</div>
+            </div>
+             <pre class="overflow-x-auto bg-gray-900 text-gray-100 text-sm rounded p-4"><code>&lt;div class="grid grid-cols-3 gap-4"&gt;
+  &lt;div class="order-last"&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div class="order-first"&gt;3&lt;/div&gt;
+  &lt;div class="order-2"&gt;4&lt;/div&gt;
+  &lt;div class="order-1"&gt;5&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+        <!-- Responsive Design -->
+        <section id="responsive" class="scroll-mt-20">
+            <h2 class="text-2xl font-semibold mb-3">14. Diseño Responsivo</h2>
+            <p class="mb-4">Todas las utilidades de Grid se pueden aplicar condicionalmente en diferentes tamaños de pantalla usando los prefijos responsivos de Tailwind (como <code class="font-mono">sm:</code>, <code class="font-mono">md:</code>, <code class="font-mono">lg:</code>, <code class="font-mono">xl:</code>, <code class="font-mono">2xl:</code>).</p>
+            <p class="mb-4">Por ejemplo, puedes tener un grid de una columna en móviles y de tres columnas en pantallas medianas y mayores.</p>
+            <div class="bg-slate-100 rounded-xl p-4 mb-6">
+                <p class="text-sm mb-2 font-medium">Ejemplo:</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-2 bg-white rounded-lg shadow">
+                    <div class="bg-pink-500 h-16 rounded">Col 1 (Móvil) / Col 1 (MD)</div>
+                    <div class="bg-pink-500 h-16 rounded">Col 1 (Móvil) / Col 2 (MD)</div>
+                    <div class="bg-pink-500 h-16 rounded">Col 1 (Móvil) / Col 3 (MD)</div>
+                    <div class="bg-pink-500 h-16 rounded md:col-span-2">Col 1 (Móvil) / Cols 1-2 (MD)</div>
+                    <div class="bg-pink-500 h-16 rounded">Col 1 (Móvil) / Col 3 (MD)</div>
+                </div>
+            </div>
+             <pre class="overflow-x-auto bg-gray-900 text-gray-100 text-sm rounded p-4"><code>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-4"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+  &lt;div&gt;Item 3&lt;/div&gt;
+  &lt;div class="md:col-span-2"&gt;Item 4 (ocupa 2 cols en MD+)&lt;/div&gt;
+  &lt;div&gt;Item 5&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+
+
+
+          <!-- Contenedor Grid: Define las columnas responsivas y el gap -->
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 border border-gray-400 p-2">
+    <!-- 
+      grid: Establece display: grid
+      grid-cols-1: Por defecto (móvil), 1 columna
+      md:grid-cols-3: En breakpoint 'md' y superior, 3 columnas
+      lg:grid-cols-6: En breakpoint 'lg' y superior, 6 columnas
+      gap-4: Espacio entre ítems (horizontal y vertical)
+    -->
+
+    <!-- Los 12 Ítems (No necesitan clases de columna específicas aquí) -->
+    <div class="bg-sky-200 p-4 rounded text-center">1</div>
+    <div class="bg-sky-200 p-4 rounded text-center">2</div>
+    <div class="bg-sky-200 p-4 rounded text-center">3</div>
+    <div class="bg-sky-200 p-4 rounded text-center">4</div>
+    <div class="bg-sky-200 p-4 rounded text-center">5</div>
+    <div class="bg-sky-200 p-4 rounded text-center">6</div>
+    <div class="bg-sky-200 p-4 rounded text-center">7</div>
+    <div class="bg-sky-200 p-4 rounded text-center">8</div>
+    <div class="bg-sky-200 p-4 rounded text-center">9</div>
+    <div class="bg-sky-200 p-4 rounded text-center">10</div>
+    <div class="bg-sky-200 p-4 rounded text-center">11</div>
+    <div class="bg-sky-200 p-4 rounded text-center">12</div>
+  </div>
+</div>
+
+<!-- Equivalente en Bootstrap 5:
+
+<div class="container mt-4">
+    <h2 class="mb-4">Grid con Bootstrap 5</h2>
+
+    <div class="row g-3 border border-secondary p-2"> 
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">1</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">2</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">3</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">4</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">5</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">6</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">7</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">8</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">9</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">10</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">11</div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-2">
+        <div class="bg-info p-4 rounded text-center text-white">12</div>
+      </div>
+      
+    </div>
+  </div> -->
+
+
+
+    </main>
+
+</body>
+
+</html>
