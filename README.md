@@ -210,24 +210,179 @@ npm run dev
 
 ## 5. Backgrounds
 
-* bg-cover
-* bg-fixed
-* bg-no-repeat
+### Colores de fondo
+* `bg-{color}-{intensidad}`: Colores de fondo (ej: `bg-blue-500`, `bg-red-200`)
+* `bg-transparent`: Fondo transparente
+* `bg-current`: Fondo con color actual
+* `bg-black/50`, `bg-blue-500/75`: Fondo con opacidad (50%, 75%)
+
+### Tamaño de fondo
+* `bg-auto`: Tamaño original de la imagen
+* `bg-cover`: Cubre todo el contenedor manteniendo proporción
+* `bg-contain`: Contiene la imagen completa dentro del elemento
+
+### Posición de fondo
+* `bg-center`: Centra la imagen de fondo
+* `bg-left`, `bg-right`: Alinea a los lados
+* `bg-top`, `bg-bottom`: Alinea arriba o abajo
+* `bg-left-top`, `bg-right-bottom`, etc.: Combinaciones de alineación
+
+### Repetición de fondo
+* `bg-repeat`: Repite la imagen (por defecto)
+* `bg-no-repeat`: No repite la imagen
+* `bg-repeat-x`: Repite solo horizontalmente
+* `bg-repeat-y`: Repite solo verticalmente
+
+### Fijación de fondo
+* `bg-fixed`: Fondo fijo durante el scroll
+* `bg-local`: Fondo se desplaza con el contenido
+* `bg-scroll`: Fondo se desplaza con la página (por defecto)
+
+### Gradientes
+* `bg-gradient-to-r`, `bg-gradient-to-t`: Dirección del gradiente (right, top, etc.)
+* `from-{color}-{intensidad}`: Color inicial del gradiente
+* `via-{color}-{intensidad}`: Color intermedio
+* `to-{color}-{intensidad}`: Color final
 
 ## 6. Flexbox
 
-* Clases básicas para contenedores
-  * flex: Activa flexbox
-  * flex-col: Dirección vertical (columna)
-  * flex-row: Dirección horizontal (fila, por defecto)
-  * gap-2, gap-4: Espaciado entre elementos (0.5rem, 1rem)
+### Activación y dirección
+* `flex`: Activa flexbox
+* `inline-flex`: Activa flexbox con comportamiento inline
+* `flex-row`: Dirección horizontal (por defecto)
+* `flex-row-reverse`: Dirección horizontal inversa
+* `flex-col`: Dirección vertical (columna)
+* `flex-col-reverse`: Dirección vertical inversa
 
-* Alineación y distribución
-  * justify-start/center/end/between: Alineación horizontal
-  * items-start/center/end/stretch: Alineación vertical
-  * flex-wrap: Permite que los elementos pasen a la siguiente línea
+### Envoltura (wrap)
+* `flex-wrap`: Permite que los elementos pasen a la siguiente línea
+* `flex-nowrap`: Mantiene todos los elementos en una línea (por defecto)
+* `flex-wrap-reverse`: Envuelve elementos pero en dirección inversa
 
+### Alineación en el eje principal (justify)
+* `justify-start`: Alinea al inicio del contenedor
+* `justify-end`: Alinea al final del contenedor
+* `justify-center`: Centra elementos horizontalmente
+* `justify-between`: Distribuye con espacio máximo entre elementos
+* `justify-around`: Distribuye con espacio igual alrededor de cada elemento
+* `justify-evenly`: Distribuye con espacio exactamente igual entre elementos
 
+### Alineación en el eje secundario (items)
+* `items-start`: Alinea elementos al inicio del eje transversal
+* `items-end`: Alinea elementos al final del eje transversal
+* `items-center`: Centra elementos verticalmente
+* `items-baseline`: Alinea elementos por sus líneas base de texto
+* `items-stretch`: Estira elementos para ocupar todo el espacio (por defecto)
+
+### Alineación de múltiples líneas (content)
+* `content-start`: Alinea líneas al inicio
+* `content-end`: Alinea líneas al final
+* `content-center`: Centra líneas
+* `content-between`: Distribuye líneas con espacio entre ellas
+* `content-around`: Distribuye líneas con espacio alrededor
+* `content-evenly`: Distribuye líneas con espacio igual
+
+### Espacio entre elementos (gap)
+* `gap-{n}`: Espacio uniforme (ej: `gap-4` = 1rem)
+* `gap-x-{n}`: Espacio horizontal
+* `gap-y-{n}`: Espacio vertical
+
+### Propiedades de elementos individuales
+* `flex-1`: Flex grow 1, flex shrink 1, flex basis 0%
+* `flex-auto`: Flex grow 1, flex shrink 1, flex basis auto
+* `flex-initial`: Flex grow 0, flex shrink 1, flex basis auto (por defecto)
+* `flex-none`: Flex grow 0, flex shrink 0, flex basis auto
+* `grow`, `grow-0`: Controla si el elemento crece
+* `shrink`, `shrink-0`: Controla si el elemento se encoge
+* `basis-{n}`: Define el tamaño base del elemento
+
+### Orden de elementos
+* `order-{n}`: Cambia el orden de elementos (ej: `order-1`, `order-last`)
+* `order-first`: Coloca el elemento primero
+* `order-last`: Coloca el elemento último
+* `order-none`: Usa el orden del DOM (por defecto)
+
+### Auto-alineación individual
+* `self-auto`: Hereda del contenedor padre
+* `self-start`: Alinea al inicio (individualmente)
+* `self-end`: Alinea al final (individualmente)
+* `self-center`: Centra (individualmente)
+* `self-stretch`: Estira para llenar (individualmente)
+* `self-baseline`: Alinea a la línea base (individualmente)
+
+## 7. Grid
+
+### Activación Grid
+* `grid`: Activa CSS Grid
+* `inline-grid`: Activa Grid con comportamiento inline
+
+### Columnas y filas (template)
+* `grid-cols-{n}`: Define número de columnas (ej: `grid-cols-3` = 3 columnas)
+* `grid-cols-none`: Sin definición de columnas
+* `grid-rows-{n}`: Define número de filas (ej: `grid-rows-2` = 2 filas)
+* `grid-rows-none`: Sin definición de filas
+
+### Columnas/filas automáticas
+* `auto-cols-auto`: Tamaño de columnas automático
+* `auto-cols-min`: Tamaño mínimo por contenido
+* `auto-cols-max`: Tamaño máximo por contenido
+* `auto-cols-fr`: Tamaño de fracción (1fr)
+* `auto-rows-auto`, `auto-rows-min`, `auto-rows-max`, `auto-rows-fr`: Análogos para filas
+
+### Flujo de elementos
+* `grid-flow-row`: Elementos fluyen por filas (por defecto)
+* `grid-flow-col`: Elementos fluyen por columnas
+* `grid-flow-dense`: Rellena espacios vacíos automáticamente
+* `grid-flow-row-dense`, `grid-flow-col-dense`: Combinaciones
+
+### Espacio entre celdas (gap)
+* `gap-{n}`: Espacio uniforme (ej: `gap-4` = 1rem)
+* `gap-x-{n}`: Espacio horizontal entre columnas
+* `gap-y-{n}`: Espacio vertical entre filas
+
+### Posicionamiento de elementos
+* `col-auto`: Posición automática
+* `col-span-{n}`: Ocupa n columnas (ej: `col-span-2` = 2 columnas)
+* `col-span-full`: Ocupa todas las columnas disponibles
+* `col-start-{n}`: Comienza en línea n (ej: `col-start-2`)
+* `col-end-{n}`: Termina en línea n (ej: `col-end-4`)
+* `row-auto`, `row-span-{n}`, `row-span-full`, `row-start-{n}`, `row-end-{n}`: Análogos para filas
+
+### Alineación de ítems en celdas
+* `justify-items-start`: Alinea ítems al inicio de la celda (horizontalmente)
+* `justify-items-end`: Alinea ítems al final de la celda
+* `justify-items-center`: Centra ítems horizontalmente
+* `justify-items-stretch`: Estira ítems para ocupar toda la celda (por defecto)
+
+### Alineación de contenido de grid
+* `justify-content-start`: Alinea todo el grid al inicio del contenedor
+* `justify-content-end`: Alinea todo el grid al final del contenedor
+* `justify-content-center`: Centra todo el grid horizontalmente
+* `justify-content-between`: Distribuye columnas con espacio máximo entre ellas
+* `justify-content-around`: Distribuye columnas con espacio igual alrededor
+* `justify-content-evenly`: Distribuye columnas con espacio exactamente igual
+
+### Alineación vertical en celdas
+* `items-start`, `items-end`, `items-center`, `items-stretch`, `items-baseline`: Igual que en Flexbox
+
+### Alineación vertical de todo el grid
+* `content-start`, `content-center`, `content-end`, `content-between`, `content-around`, `content-evenly`: Igual que en Flexbox
+
+### Alineación individual (para ítems específicos)
+* `justify-self-auto`: Hereda del grid padre
+* `justify-self-start`: Alinea al inicio horizontalmente (individualmente)
+* `justify-self-end`: Alinea al final horizontalmente (individualmente)
+* `justify-self-center`: Centra horizontalmente (individualmente)
+* `justify-self-stretch`: Estira horizontalmente (individualmente)
+* `self-auto`, `self-start`, `self-end`, `self-center`, `self-stretch`, `self-baseline`: Alineación vertical individual
+
+### Grid responsive
+* Todas las clases grid pueden ser prefijadas con breakpoints:
+  * `sm:grid-cols-2`: 2 columnas en pantallas pequeñas (640px+)
+  * `md:grid-cols-3`: 3 columnas en pantallas medianas (768px+)
+  * `lg:grid-cols-4`: 4 columnas en pantallas grandes (1024px+)
+  * `xl:grid-cols-6`: 6 columnas en pantallas extra grandes (1280px+)
+  * `2xl:grid-cols-8`: 8 columnas en pantallas 2xl (1536px+)
 
 ## Equivalencias en el espaciado:
 
