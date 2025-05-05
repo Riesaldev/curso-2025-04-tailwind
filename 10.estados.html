@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guía clases de estado con Tailwind CSS 4</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @import 'tailwindcss';
+        
+        .example-container {
+            @apply p-6 mb-8 border border-gray-200 rounded-lg;
+        }
+        .code-block {
+            @apply bg-gray-100 p-4 rounded my-2 font-mono text-sm overflow-x-auto;
+        }
+        .example-title {
+            @apply text-lg font-semibold mb-3;
+        }
+        .example-description {
+            @apply text-gray-600 mb-3;
+        }
+        .section-title {
+            @apply text-2xl font-bold mt-12 mb-4;
+        }
+    </style>
+
+</head>
+
+<body class="max-w-4xl mx-auto p-6 bg-white">
+    <h1 class="text-3xl font-bold mb-4">Guía de clases de estado en Tailwind CSS 4</h1>
+    <p class="mb-8 text-gray-700">Esta guía muestra ejemplos prácticos de las diferentes clases de estado disponibles en Tailwind CSS 4. Interactúa con los elementos para ver cómo funcionan cada uno de ellos.</p>
+
+    <!-- ESTADOS DE INTERACCIÓN BÁSICOS -->
+    <h2 class="section-title">Estados de interacción básicos</h2>
+
+    <!-- Hover -->
+    <div class="example-container">
+        <h3 class="example-title">Hover</h3>
+        <p class="example-description">La clase <code>hover:</code> aplica estilos cuando pasas el cursor por encima del elemento.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"&gt;
+    Pasa el cursor por encima
+&lt;/button&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 cursor-pointer">
+                Pasa el cursor por encima
+            </button>
+        </div>
+    </div>
+
+    <!-- Focus -->
+    <div class="example-container">
+        <h3 class="example-title">Focus</h3>
+        <p class="example-description">La clase <code>focus:</code> aplica estilos cuando el elemento recibe el foco (haz clic o usa Tab).</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;input type="text" placeholder="Haz clic aquí" 
+    class="px-4 py-2 border border-gray-300 rounded 
+    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <input type="text" placeholder="Haz clic aquí" 
+                class="px-4 py-2 border border-gray-300 rounded 
+                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+    </div>
+
+    <!-- Active -->
+    <div class="example-container">
+        <h3 class="example-title">Active</h3>
+        <p class="example-description">La clase <code>active:</code> aplica estilos mientras mantienes presionado el elemento.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;button class="px-4 py-2 bg-green-500 text-white rounded 
+    active:bg-green-700 active:scale-95 transition-transform"&gt;
+    Mantenme presionado
+&lt;/button&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <button class="px-4 py-2 bg-green-500 text-white rounded 
+                active:bg-green-700 active:scale-95 transition-transform">
+                Mantenme presionado
+            </button>
+        </div>
+    </div>
+
+    <!-- Visited -->
+    <div class="example-container">
+        <h3 class="example-title">Visited</h3>
+        <p class="example-description">La clase <code>visited:</code> aplica estilos a los enlaces que ya has visitado.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;a href="https://www.example.com" class="text-blue-500 visited:text-purple-500"&gt;
+    Enlace de ejemplo (cambia a morado cuando lo visitas)
+&lt;/a&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <a href="https://www.example.com" class="text-blue-500 visited:text-purple-500" target="_blank">
+                Enlace de ejemplo (cambia a morado cuando lo visitas)
+            </a>
+        </div>
+    </div>
+
+    <!-- Focus-visible -->
+    <div class="example-container">
+        <h3 class="example-title">Focus-visible</h3>
+        <p class="example-description">La clase <code>focus-visible:</code> aplica estilos cuando el elemento recibe el foco a través del teclado. Prueba presionando Tab.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;button class="px-4 py-2 bg-indigo-500 text-white rounded
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2"&gt;
+    Navega con Tab hasta aquí
+&lt;/button&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <button class="px-4 py-2 bg-indigo-500 text-white rounded
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2">
+                Navega con Tab hasta aquí
+            </button>
+        </div>
+    </div>
+
+    <!-- Focus-within -->
+    <div class="example-container">
+        <h3 class="example-title">Focus-within</h3>
+        <p class="example-description">La clase <code>focus-within:</code> aplica estilos a un elemento cuando él mismo o alguno de sus hijos recibe el foco.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;div class="p-4 border border-gray-300 rounded focus-within:border-blue-500 focus-within:bg-blue-50"&gt;
+    &lt;label class="block text-sm font-medium text-gray-700"&gt;Tu nombre&lt;/label&gt;
+    &lt;input type="text" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded"&gt;
+&lt;/div&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <div class="p-4 border border-gray-300 rounded focus-within:border-blue-500 focus-within:bg-blue-50">
+                <label class="block text-sm font-medium text-gray-700">Tu nombre</label>
+                <input type="text" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded">
+            </div>
+        </div>
+    </div>
+
+    <!-- ESTADOS DE GRUPO -->
+    <h2 class="section-title">Estados de grupo</h2>
+
+    <!-- Group-hover -->
+    <div class="example-container">
+        <h3 class="example-title">Group-hover</h3>
+        <p class="example-description">La clase <code>group-hover:</code> aplica estilos a los elementos hijos cuando pasas el cursor sobre el elemento padre con clase <code>group</code>.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;div class="group p-4 bg-white border rounded shadow hover:shadow-md transition-shadow cursor-pointer"&gt;
+    &lt;h4 class="font-medium text-gray-700 group-hover:text-blue-600"&gt;Tarjeta con efecto de grupo&lt;/h4&gt;
+    &lt;p class="mt-2 text-gray-600"&gt;Pasa el cursor por encima de esta tarjeta&lt;/p&gt;
+    &lt;span class="mt-3 inline-block text-sm text-gray-500 group-hover:text-blue-500"&gt;Ver más →&lt;/span&gt;
+&lt;/div&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <div class="group p-4 bg-white border rounded shadow hover:shadow-md transition-shadow cursor-pointer">
+                <h4 class="font-medium text-gray-700 group-hover:text-blue-600">Tarjeta con efecto de grupo</h4>
+                <p class="mt-2 text-gray-600">Pasa el cursor por encima de esta tarjeta</p>
+                <span class="mt-3 inline-block text-sm text-gray-500 group-hover:text-blue-500">Ver más →</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Group-focus -->
+    <div class="example-container">
+        <h3 class="example-title">Group-focus</h3>
+        <p class="example-description">La clase <code>group-focus:</code> aplica estilos a los elementos hijos cuando el elemento padre con clase <code>group</code> recibe el foco.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;button class="group p-3 bg-white border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"&gt;
+    &lt;span class="font-medium text-gray-700 group-focus:text-blue-600"&gt;Botón con grupo&lt;/span&gt;
+    &lt;span class="ml-2 text-gray-400 group-focus:text-blue-500"&gt;→&lt;/span&gt;
+&lt;/button&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <button class="group p-3 bg-white border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <span class="font-medium text-gray-700 group-focus:text-blue-600">Botón con grupo</span>
+                <span class="ml-2 text-gray-400 group-focus:text-blue-500">→</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Peer-hover -->
+    <div class="example-container">
+        <h3 class="example-title">Peer-hover</h3>
+        <p class="example-description">La clase <code>peer-hover:</code> aplica estilos a un elemento cuando pasas el cursor sobre otro elemento con clase <code>peer</code>.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;div class="flex items-center space-x-4"&gt;
+    &lt;button class="peer px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"&gt;
+        Pasa el cursor por aquí
+    &lt;/button&gt;
+    &lt;span class="text-gray-500 peer-hover:text-blue-500 transition-colors"&gt;¡Yo cambio de color!&lt;/span&gt;
+&lt;/div&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <div class="flex items-center space-x-4">
+                <button class="peer px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
+                    Pasa el cursor por aquí
+                </button>
+                <span class="text-gray-500 peer-hover:text-blue-500 transition-colors">¡Yo cambio de color!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ESTADOS DE FORMULARIOS -->
+    <h2 class="section-title">Estados de formularios</h2>
+
+    <!-- Disabled -->
+    <div class="example-container">
+        <h3 class="example-title">Disabled</h3>
+        <p class="example-description">La clase <code>disabled:</code> aplica estilos cuando un elemento está deshabilitado.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;button disabled class="px-4 py-2 bg-blue-500 text-white rounded 
+    disabled:opacity-50 disabled:cursor-not-allowed"&gt;
+    Botón deshabilitado
+&lt;/button&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <button disabled class="px-4 py-2 bg-blue-500 text-white rounded 
+                disabled:opacity-50 disabled:cursor-not-allowed">
+                Botón deshabilitado
+            </button>
+        </div>
+    </div>
+
+    <!-- Enabled -->
+    <div class="example-container">
+        <h3 class="example-title">Enabled</h3>
+        <p class="example-description">La clase <code>enabled:</code> aplica estilos solo a elementos habilitados.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;div class="space-y-3"&gt;
+    &lt;button class="px-4 py-2 bg-gray-200 text-gray-800 rounded 
+        enabled:bg-green-500 enabled:text-white enabled:hover:bg-green-600"&gt;
+        Botón habilitado
+    &lt;/button&gt;
+    &lt;button disabled class="px-4 py-2 bg-gray-200 text-gray-800 rounded 
+        enabled:bg-green-500 enabled:text-white enabled:hover:bg-green-600"&gt;
+        Botón deshabilitado
+    &lt;/button&gt;
+&lt;/div&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <div class="space-y-3">
+                <button class="px-4 py-2 bg-gray-200 text-gray-800 rounded 
+                    enabled:bg-green-500 enabled:text-white enabled:hover:bg-green-600">
+                    Botón habilitado
+                </button>
+                <button disabled class="px-4 py-2 bg-gray-200 text-gray-800 rounded 
+                    enabled:bg-green-500 enabled:text-white enabled:hover:bg-green-600">
+                    Botón deshabilitado
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checked -->
+    <div class="example-container">
+        <h3 class="example-title">Checked</h3>
+        <p class="example-description">La clase <code>checked:</code> aplica estilos cuando un checkbox o radio está seleccionado.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;label class="flex items-center space-x-3 cursor-pointer"&gt;
+    &lt;input type="checkbox" class="w-5 h-5 border-2 rounded 
+        text-blue-500 focus:ring-blue-500
+        checked:bg-blue-500 checked:border-transparent"&gt;
+    &lt;span class="text-gray-700"&gt;Márcame para ver el cambio&lt;/span&gt;
+&lt;/label&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <label class="flex items-center space-x-3 cursor-pointer">
+                <input type="checkbox" class="w-5 h-5 border-2 rounded 
+                    text-blue-500 focus:ring-blue-500
+                    checked:bg-blue-500 checked:border-transparent">
+                <span class="text-gray-700">Márcame para ver el cambio</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Placeholder -->
+    <div class="example-container">
+        <h3 class="example-title">Placeholder</h3>
+        <p class="example-description">La clase <code>placeholder:</code> aplica estilos al texto placeholder de inputs y textareas.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;input type="text" placeholder="Placeholder con estilo" 
+    class="px-4 py-2 border border-gray-300 rounded
+    placeholder:text-purple-400 placeholder:italic"&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <input type="text" placeholder="Placeholder con estilo" 
+                class="px-4 py-2 border border-gray-300 rounded w-full
+                placeholder:text-purple-400 placeholder:italic">
+        </div>
+    </div>
+
+    <!-- Required -->
+    <div class="example-container">
+        <h3 class="example-title">Required</h3>
+        <p class="example-description">La clase <code>required:</code> aplica estilos a elementos de formulario obligatorios.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;div class="space-y-3"&gt;
+    &lt;input type="text" required placeholder="Campo requerido" 
+        class="px-4 py-2 border border-gray-300 rounded w-full
+        required:border-red-500 required:placeholder:text-red-300"&gt;
+    &lt;input type="text" placeholder="Campo opcional" 
+        class="px-4 py-2 border border-gray-300 rounded w-full
+        required:border-red-500 required:placeholder:text-red-300"&gt;
+&lt;/div&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <div class="space-y-3">
+                <input type="text" required placeholder="Campo requerido" 
+                    class="px-4 py-2 border border-gray-300 rounded w-full
+                    required:border-red-500 required:placeholder:text-red-300">
+                <input type="text" placeholder="Campo opcional" 
+                    class="px-4 py-2 border border-gray-300 rounded w-full
+                    required:border-red-500 required:placeholder:text-red-300">
+            </div>
+        </div>
+    </div>
+
+    <!-- Valid e Invalid -->
+    <div class="example-container">
+        <h3 class="example-title">Valid e Invalid</h3>
+        <p class="example-description">Las clases <code>valid:</code> e <code>invalid:</code> aplican estilos según la validación del elemento.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;form class="space-y-4" novalidate&gt;
+    &lt;input type="email" required placeholder="Introduce un email válido" 
+        class="px-4 py-2 border border-gray-300 rounded w-full
+        valid:border-green-500 invalid:border-red-500"&gt;
+    &lt;p class="text-sm text-gray-500"&gt;Escribe un email y haz clic fuera para ver la validación&lt;/p&gt;
+&lt;/form&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <form class="space-y-4" novalidate>
+                <input type="email" required placeholder="Introduce un email válido" 
+                    class="px-4 py-2 border border-gray-300 rounded w-full
+                    valid:border-green-500 invalid:border-red-500">
+                <p class="text-sm text-gray-500">Escribe un email y haz clic fuera para ver la validación</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ESTADOS DE POSICIÓN -->
+    <h2 class="section-title">Estados de posición</h2>
+
+    <!-- First, Last, Odd y Even -->
+    <div class="example-container">
+        <h3 class="example-title">First, Last, Odd y Even</h3>
+        <p class="example-description">Las clases <code>first:</code>, <code>last:</code>, <code>odd:</code> y <code>even:</code> aplican estilos según la posición del elemento.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;ul class="border border-gray-200 rounded divide-y divide-gray-200"&gt;
+    &lt;li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+        last:bg-green-50 last:font-semibold odd:bg-gray-50"&gt;Elemento 1 (Primero, Impar)&lt;/li&gt;
+    &lt;li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+        last:bg-green-50 last:font-semibold even:bg-gray-100"&gt;Elemento 2 (Par)&lt;/li&gt;
+    &lt;li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+        last:bg-green-50 last:font-semibold odd:bg-gray-50"&gt;Elemento 3 (Impar)&lt;/li&gt;
+    &lt;li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+        last:bg-green-50 last:font-semibold even:bg-gray-100"&gt;Elemento 4 (Par)&lt;/li&gt;
+    &lt;li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+        last:bg-green-50 last:font-semibold odd:bg-gray-50"&gt;Elemento 5 (Último, Impar)&lt;/li&gt;
+&lt;/ul&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <ul class="border border-gray-200 rounded divide-y divide-gray-200">
+                <li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+                    last:bg-green-50 last:font-semibold odd:bg-gray-50">Elemento 1 (Primero, Impar)</li>
+                <li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+                    last:bg-green-50 last:font-semibold even:bg-gray-100">Elemento 2 (Par)</li>
+                <li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+                    last:bg-green-50 last:font-semibold odd:bg-gray-50">Elemento 3 (Impar)</li>
+                <li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+                    last:bg-green-50 last:font-semibold even:bg-gray-100">Elemento 4 (Par)</li>
+                <li class="px-4 py-3 bg-white first:bg-blue-50 first:font-semibold
+                    last:bg-green-50 last:font-semibold odd:bg-gray-50">Elemento 5 (Último, Impar)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Empty -->
+    <div class="example-container">
+        <h3 class="example-title">Empty</h3>
+        <p class="example-description">La clase <code>empty:</code> aplica estilos cuando un elemento no tiene contenido.</p>
+        
+        <div class="code-block">
+            <pre><code class="language-html block whitespace-pre overflow-x-auto">
+&lt;div class="space-y-3"&gt;
+    &lt;div class="p-4 border border-gray-300 rounded min-h-[60px]
+        empty:border-dashed empty:bg-gray-50 empty:flex empty:items-center 
+        empty:justify-center empty:after:content-['Sin_contenido'] 
+        empty:after:text-gray-400"&gt;
+        Elemento con contenido
+    &lt;/div&gt;
+    &lt;div class="p-4 border border-gray-300 rounded min-h-[60px]
+        empty:border-dashed empty:bg-gray-50 empty:flex empty:items-center 
+        empty:justify-center empty:after:content-['Sin_contenido'] 
+        empty:after:text-gray-400"&gt;&lt;/div&gt;
+&lt;/div&gt;
+            </code></pre>
+        </div>
+        
+        <div class="mt-4">
+            <div class="space-y-3">
+                <div class="p-4 border border-gray-300 rounded min-h-[60px]
+                    empty:border-dashed empty:bg-gray-50 empty:flex empty:items-center 
+                    empty:justify-center empty:after:content-['Sin_contenido'] 
+                    empty:after:text-gray-400">
+                    Elemento con contenido
+                </div>
+                <div class="p-4 border border-gray-300 rounded min-h-[60px]
+                    empty:border-dashed empty:bg-gray-50 empty:flex empty:items-center 
+                    empty:justify-center empty:after:content-['Sin_contenido'] 
+                    empty:after:text-gray-400"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-12 p-6 bg-blue-50 rounded-lg border border-blue-100">
+        <h2 class="text-xl font-semibold text-blue-800">Consejos para usar estados</h2>
+        <ul class="mt-4 space-y-2 text-blue-700">
+            <li>• Combina estados para crear experiencias de usuario más ricas (ej. <code>hover:focus:bg-blue-800</code>)</li>
+            <li>• Usa <code>transition</code> junto con estados para efectos suaves</li>
+            <li>• Asegúrate de tener buen contraste en todos los estados para accesibilidad</li>
+            <li>• Los estados de formulario son clave para crear interfaces de usuario responsivas</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
