@@ -551,6 +551,8 @@ Estados de posición:
 4. Añadir estados interactivos: hover, focus
 
 
+Archivos config
+
 ## Despliegue de páginas estáticas:
 
 GitHub Pages

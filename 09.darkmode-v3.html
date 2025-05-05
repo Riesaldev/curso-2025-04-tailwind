@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Guía Dark Mode con Tailwind CSS 3</title>
+<script>
+    tailwind.config = {
+        darkMode: 'selector',
+    };
+
+    function toggleMode() {
+        document.documentElement.classList.toggle('dark');
+    }
+    
+</script>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white min-h-screen p-8 transition-colors duration-300">
+
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Guía de Dark Mode con Tailwind CSS 4.1</h1>
+        
+        <button class="dark:border dark:text-white px-4 py-2" 
+        onclick="toggleMode()">
+        Light-Dark
+    </button>
+        <!-- Selector de tema -->
+        <div class="mb-10 p-6 bg-gray-100 dark:bg-slate-800 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">Selector de Tema</h2>
+            <div class="flex flex-wrap gap-4">
+                <button 
+                onclick="localStorage.theme = 'light';"
+                    class="theme-button px-4 py-2 rounded-md shadow transition-colors duration-200 flex items-center gap-2 bg-white dark:bg-slate-800 dark:text-white text-slate-900 hover:bg-gray-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                    data-theme="light">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    Tema Claro
+                </button>
+                <button 
+                onclick="localStorage.theme = 'dark';"
+                    class="theme-button px-4 py-2 rounded-md shadow transition-colors duration-200 flex items-center gap-2 bg-white dark:bg-slate-800 dark:text-white text-slate-900 hover:bg-gray-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                    data-theme="dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                    Tema Oscuro
+                </button>
+                <button 
+                onclick="localStorage.removeItem('theme');"
+                    class="theme-button px-4 py-2 rounded-md shadow transition-colors duration-200 flex items-center gap-2 bg-white dark:bg-slate-800 dark:text-white text-slate-900 hover:bg-gray-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                    data-theme="system">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Tema Sistema
+                </button>
+            </div>
+        </div>
+
+        <!-- Explicación del modo oscuro -->
+        <div class="space-y-8">
+            <section class="p-6 bg-gray-100 dark:bg-slate-800 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">¿Cómo usar Dark Mode en Tailwind CSS 4.1?</h2>
+                <p class="mb-4">Tailwind CSS 4.1 facilita la implementación del modo oscuro con el prefijo <code class="bg-gray-200 dark:bg-slate-700 px-1 rounded">dark:</code> para cualquier utilidad.</p>
+                <div class="bg-white dark:bg-slate-700 p-4 rounded-md">
+                    <pre class="text-sm overflow-x-auto"><code>&lt;div class="bg-white <span class="text-blue-600 dark:text-blue-400">dark:bg-slate-800</span> text-black <span class="text-blue-600 dark:text-blue-400">dark:text-white</span>"&gt;
+  Este div cambiará de estilo en modo oscuro
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- Ejemplo de tarjeta con dark mode -->
+            <section class="p-6 bg-gray-100 dark:bg-slate-800 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Ejemplo de Componente</h2>
+                <p class="mb-4">Este es un ejemplo de una tarjeta que se adapta automáticamente al tema elegido:</p>
+                
+                <div class="bg-white dark:bg-slate-700 rounded-lg p-6 shadow-lg">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-medium">Componente adaptable</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">Este componente cambia automáticamente sus colores dependiendo del tema seleccionado, ya sea claro, oscuro o basado en la preferencia del sistema.</p>
+                </div>
+            </section>
+
+            <!-- Implementación -->
+            <section class="p-6 bg-gray-100 dark:bg-slate-800 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Implementación del Selector de Tema</h2>
+                <p class="mb-4">Para implementar un selector de tema como el de arriba, necesitas:</p>
+                <ol class="list-decimal pl-5 space-y-2">
+                    <li>Agregar/quitar la clase <code class="bg-gray-200 dark:bg-slate-700 px-1 rounded">dark</code> al elemento HTML</li>
+                    <li>Almacenar la preferencia en localStorage</li>
+                    <li>Detectar la preferencia del sistema cuando se selecciona "Tema Sistema"</li>
+                </ol>
+                <div class="bg-white dark:bg-slate-700 p-4 rounded-md mt-4">
+                    <pre class="text-sm overflow-x-auto"><code>// Verificar preferencia guardada o usar preferencia del SO
+if (localStorage.theme === 'dark' || 
+   (!('theme' in localStorage) && 
+    window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
+}
+
+// Función para cambiar el tema
+function setTheme(theme) {
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark')
+    localStorage.theme = 'dark'
+  } else if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+    localStorage.theme = 'light'
+  } else {
+    localStorage.removeItem('theme')
+    // Aplicar tema según SO
+  }
+}</code></pre>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+  
+</html>
