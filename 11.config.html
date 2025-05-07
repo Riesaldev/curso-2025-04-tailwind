@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personalizar Tailwind CSS 4</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        /* Mejor descargar las fuentes estrictamente necesarias y cargarlas desde nuestro propio server o proyecto*/
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Tagesschrift&display=swap');
+        @import 'tailwindcss';
+        @theme {
+
+            /* Seleccionar fuentes desde google fonts https://fonts.google.com/ */
+            
+            /* Sobreescribir fuentes de tailwind */
+            --font-sans: "Red Hat Display", ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+            --font-serif: "Red Hat Text", ui-sans-serif, system-ui, sans-serif;
+            --font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+
+            /* crear clase personalizada */
+            --font-title: "Tagesschrift", ui-sans-serif, system-ui, sans-serif;
+            --font-body: "Lato", ui-sans-serif, system-ui, sans-serif;
+            --font-code: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+            /* Colores https://uicolors.app/ */
+            --color-fruit-salad-50: #f3faf3;
+            --color-fruit-salad-100: #e4f4e6;
+            --color-fruit-salad-200: #cae8cd;
+            --color-fruit-salad-300: #a1d4a6;
+            --color-fruit-salad-400: #70b878;
+            --color-fruit-salad-500: #4b9a54;
+            --color-fruit-salad-600: #3a7f41;
+            --color-fruit-salad-700: #306537;
+            --color-fruit-salad-800: #2a512f;
+            --color-fruit-salad-900: #244328;
+            --color-fruit-salad-950: #0f2413;
+
+            /* customizar breakpoints, shadows.... */
+
+    }
+    @utility btn-primary {
+        @apply bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600 cursor-pointer ;
+    }
+
+    @layer base {
+        /* Enlaces en el body: verdes con subrayado ondulado en un tono distinto */
+        body a {
+            @apply text-green-600 underline decoration-wavy decoration-green-400 hover:text-green-800;
+        }
+        
+        /* Enlaces en el footer: azules con subrayado en un tono azul distinto */
+        footer a {
+            @apply text-blue-600 underline decoration-blue-300 hover:text-blue-800;
+        }
+            
+    }
+
+    </style>
+
+</head>
+
+<body >
+    <main class="my-5 container mx-auto">
+        <h1 class="text-2xl">Este es un título Red Hat Display</h1>
+        <p>Este es un texto de párrafo Red Hat Text</p>
+        <p>Este es un texto de párrafo Red Hat Text con un bloque de código Fira Code <code>console.log("Hola");</code></p>
+
+        <h1 class="font-title text-2xl">Este es un título Tagesschrift</h1>
+        <p class="font-body">Este es un texto de párrafo Lato</p>
+    
+        <p class="font-body">Este es un texto de párrafo Lato con un
+             bloque de código JetBrains <code class="font-code">console.log("Hola");</code></p>
+    
+             <div class="my-5 p-6 bg-fruit-salad-100 rounded-lg shadow">
+                <h2 class="text-xl text-fruit-salad-700 font-semibold mb-2">Componente con colo personalizado</h2>
+                <p class="text-fruit-salad-600 ">
+                    Este color se ha generado en https://uicolors.app/ y exportado en opción Tailwind 4.
+                </p>
+
+
+
+                <p class="text-secondary-500">Este color es color secondary-500.</p>
+
+                <button class="btn-primary mt-5">
+                    Botón personalizado
+                </button>
+                <button class="btn-primary mt-5">
+                    Botón personalizado
+                </button>
+
+                <div class="mt-5 flex flex-col gap-2">
+                    <a href="#">Enlace customizado sin clase</a> 
+                    <a href="#">Enlace customizado sin clase</a>
+                </div>
+            </div>
+
+
+    </main>
+    <footer class="bg-gray-200 py-6 px-4 border-t border-gray-300">
+        <div class="container mx-auto">
+          <!-- Enlaces del footer -->
+          <div class="flex justify-center space-x-6 mb-4">
+            <a href="#">Acerca de nosotros</a>
+            <a href="#">Contacto</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos de uso</a>
+          </div>
+          
+          <!-- Copyright -->
+          <div class="text-center text-gray-600 text-sm">
+            &copy; Mi Empresa. Todos los derechos reservados.
+          </div>
+        </div>
+      </footer>
+</body>
+
+</html>
