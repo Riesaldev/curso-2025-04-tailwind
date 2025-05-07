@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Demo formularios · Tailwind 4.1</title>
+  </head>
+
+  <body class="bg-gray-50 p-8 text-gray-800 antialiased">
+    <h1 class="mb-8 text-center text-3xl font-bold text-indigo-600">
+      Estilizando Formularios con Tailwind CSS 4.1
+    </h1>
+
+    <form class="mx-auto max-w-lg space-y-8 rounded-lg bg-white p-8 shadow-lg">
+      <!-- 1. inputs -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-gray-700">1. Inputs</h2>
+        <div>
+          <label for="text-input" class="mb-1 block text-sm font-medium text-gray-600"
+            >Input de Texto</label
+          >
+          <input
+            type="text"
+            id="text-input"
+            placeholder="Escribe algo..."
+            class="placeholder:text-blue-300 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          />
+        </div>
+        <div>
+          <label for="email-input" class="mb-1 block text-sm font-medium text-gray-600"
+            >Input de Email</label
+          >
+          <input
+            type="email"
+            id="email-input"
+            placeholder="tu@email.com"
+            class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          />
+        </div>
+        <div>
+          <label for="password-input" class="mb-1 block text-sm font-medium text-gray-600"
+            >Input de Contraseña</label
+          >
+          <input
+            type="password"
+            id="password-input"
+            placeholder="********"
+            class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          />
+        </div>
+         <div>
+          <label for="number-input" class="mb-1 block text-sm font-medium text-gray-600"
+            >Input Numérico</label
+          >
+          <input
+            type="number"
+            id="number-input"
+            placeholder="123"
+            class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          />
+        </div>
+         <div>
+          <label for="search-input" class="mb-1 block text-sm font-medium text-gray-600"
+            >Input de Búsqueda</label
+          >
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Buscar..."
+            class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          />
+        </div>
+        <div>
+          <label for="date-input" class="mb-1 block text-sm font-medium text-gray-600"
+            >Input de Fecha</label
+          >
+          <input
+            type="date"
+            id="date-input"
+            class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
+
+      <!-- 2. textarea -->
+      <div>
+        <h2 class="mb-4 text-xl font-semibold text-gray-700">2. Textarea</h2>
+        <label for="textarea-input" class="mb-1 block text-sm font-medium text-gray-600"
+          >Área de Texto</label
+        >
+        <textarea
+          id="textarea-input"
+          rows="4"
+          placeholder="Escribe un mensaje largo..."
+          class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        ></textarea>
+      </div>
+
+      <!-- 3. select -->
+      <div>
+        <h2 class="mb-4 text-xl font-semibold text-gray-700">3. Select</h2>
+        <label for="select-input" class="mb-1 block text-sm font-medium text-gray-600"
+          >Selector</label
+        >
+        <select
+          id="select-input"
+          class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        >
+          <option>Opción 1</option>
+          <option>Opción 2</option>
+          <option>Opción 3</option>
+        </select>
+      </div>
+
+      <!-- 4. checkbox -->
+      <div class="space-y-2">
+        <h2 class="mb-4 text-xl font-semibold text-gray-700">4. Checkbox</h2>
+        <div class="flex items-center">
+          <input
+            id="checkbox-1"
+            type="checkbox"
+            class="h-4 w-4 rounded accent-pink-500"
+          />
+          <label for="checkbox-1" class="ml-2 block text-sm text-gray-900">Checkbox 1</label>
+        </div>
+        <div class="flex items-center">
+          <input
+            id="checkbox-2"
+            type="checkbox"
+            checked
+            class="h-4 w-4 rounded accent-indigo-500 "
+          />
+          <label for="checkbox-2" class="ml-2 block text-sm text-gray-900">Checkbox 2 (marcado)</label>
+        </div>
+      </div>
+
+      <!-- 5. radio -->
+      <div class="space-y-2">
+        <h2 class="mb-4 text-xl font-semibold text-gray-700">5. Radio Buttons</h2>
+        <div class="flex items-center">
+          <input
+            id="radio-1"
+            name="radio-group"
+            type="radio"
+            class="h-4 w-4 accent-pink-500"
+          />
+          <label for="radio-1" class="ml-2 block text-sm text-gray-900">Radio 1</label>
+        </div>
+        <div class="flex items-center">
+          <input
+            id="radio-2"
+            name="radio-group"
+            type="radio"
+            checked
+            class="h-4 w-4 accent-indigo-500"
+          />
+          <label for="radio-2" class="ml-2 block text-sm text-gray-900">Radio 2 (seleccionado)</label>
+        </div>
+      </div>
+
+      <!-- 6. range -->
+      <div>
+        <h2 class="mb-4 text-xl font-semibold text-gray-700">6. Range Input</h2>
+        <label for="range-input" class="mb-1 block text-sm font-medium text-gray-600"
+          >Rango</label
+        >
+        <input
+          type="range"
+          id="range-input"
+          min="0"
+          max="100"
+          value="50"
+          class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-indigo-600"
+        />
+      </div>
+
+      <!-- 7. button -->
+      <div class="space-y-4">
+        <h2 class="mb-4 text-xl font-semibold text-gray-700">7. Buttons</h2>
+        <div class="flex space-x-4">
+          <button
+            type="submit"
+            class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Enviar (Submit)
+          </button>
+          <button
+            type="reset"
+            class="rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          >
+            Resetear
+          </button>
+          <button
+            type="button"
+            class="rounded-md bg-gray-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
+          >
+            Botón Normal
+          </button>
+        </div>
+      </div>
+
+      <!-- 8. label (ya se usaron arriba) -->
+       <h2 class="text-xl font-semibold text-gray-700">8. Labels</h2>
+       <p class="text-sm text-gray-600">Los labels se han usado en los ejemplos anteriores para asociar texto descriptivo con cada control de formulario. Se utilizó la clase `block text-sm font-medium text-gray-600 mb-1` para estilizar la mayoría de ellos.</p>
+
+      <!-- 9. fieldset y 10. legend -->
+      <fieldset class="rounded-md border border-gray-300 p-4">
+        <legend class="px-1 text-sm font-medium text-gray-700">9. Fieldset & 10. Legend</legend>
+        <div class="space-y-4">
+          <p class="text-sm text-gray-600">Agrupa elementos relacionados.</p>
+          <div>
+             <label for="fieldset-input" class="mb-1 block text-sm font-medium text-gray-600"
+               >Input dentro del Fieldset</label
+             >
+             <input
+               type="text"
+               id="fieldset-input"
+               class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+             />
+           </div>
+        </div>
+      </fieldset>
+
+      <!-- 11. form (el contenedor principal es un form) -->
+       <h2 class="text-xl font-semibold text-gray-700">11. Form</h2>
+       <p class="text-sm text-gray-600">Todo el contenido está envuelto en una etiqueta `form` estilizada con `mx-auto max-w-lg space-y-8 rounded-lg bg-white p-8 shadow-lg`.</p>
+
+
+      <!-- 12. input-group -->
+      <div>
+        <h2 class="mb-4 text-xl font-semibold text-gray-700">12. Input Group</h2>
+         <label for="input-group" class="mb-1 block text-sm font-medium text-gray-600"
+            >Input con Addon</label
+          >
+        <div class="flex rounded-md shadow-sm">
+          <span class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">https://</span>
+          <input type="text" id="input-group" class="block w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="dominio.com">
+        </div>
+         <label for="input-group-button" class="mt-4 mb-1 block text-sm font-medium text-gray-600"
+            >Input con Botón</label
+          >
+        <div class="flex">
+          <input type="text" id="input-group-button" class="w-full rounded-l-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" placeholder="Código de descuento">
+          <button type="button" onclick="alert('Aplicando descuento...')" class="-ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-gray-50 px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">Aplicar</button>
+        </div>
+      </div>
+
+      <!-- 13. validation -->
+      <div class="space-y-4">
+         <h2 class="mb-4 text-xl font-semibold text-gray-700">13. Validation States</h2>
+        <div>
+           <label for="valid-input" class="mb-1 block text-sm font-medium text-gray-600"
+            >Input Válido (Ejemplo)</label
+          >
+          <input
+            type="text"
+            id="valid-input"
+            value="Contenido correcto"
+            class="w-full rounded-md border border-green-500 px-3 py-2 shadow-sm focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
+          />
+           <p class="mt-1 text-xs text-green-600">¡Perfecto!</p>
+        </div>
+         <div>
+           <label for="invalid-input" class="mb-1 block text-sm font-medium text-gray-600"
+            >Input Inválido (Ejemplo)</label
+          >
+          <input
+            type="email"
+            id="invalid-input"
+            value="email-incorrecto"
+            aria-invalid="true"
+            aria-describedby="email-error"
+            class="w-full rounded-md border border-red-500 px-3 py-2 shadow-sm focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+          />
+          <p class="mt-1 text-xs text-red-600" id="email-error">Por favor, introduce un email válido.</p>
+        </div>
+      </div>
+    </form>
+
+  </body>
+</html>

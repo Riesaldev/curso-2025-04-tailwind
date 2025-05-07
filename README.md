@@ -540,6 +540,21 @@ Estados de posición:
 * even: - Elementos en posiciones pares
 * empty: - Elementos sin contenido
 
+## 11. Directivas Tailwind CSS
+
+
+* `@import "tailwindcss"`:
+    * Importa Tailwind CSS en tu archivo CSS.
+    * Reemplaza a la antigua sintaxis de @tailwind base, @tailwind components, @tailwind utilities
+* `@theme`:
+    * Define variables de tema para Tailwind CSS.
+* `@utility`:
+    * Define utilidades personalizadas.
+    * Puede combinarse con `@apply` para usar clases existentes de Tailwind.
+* `@layer`:
+    * Permite agrupar y anidar capas de estilos
+
+
 
 
 
